@@ -1,0 +1,83 @@
+/* 1. Container Utama TableView (Border luar & sudut atas melengkung) */
+.table-view {
+    -fx-background-color: #FAFCFE;
+    -fx-border-color: #5B96D3;
+    -fx-border-width: 1.5px;
+    -fx-border-radius: 15px 15px 0 0;
+    -fx-background-radius: 15px 15px 0 0;
+    -fx-padding: 0;
+}
+
+/* 2. Area Header Kolom */
+.table-view .column-header-background {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 15px 15px 0 0;
+    -fx-border-color: #5b93d3;
+    -fx-border-width: 0 0 1.5px 0; /* Garis pemisah bawah header */
+}
+
+/* Menghilangkan kotak filler abu-abu di pojok kanan header */
+.table-view .column-header-background .filler,
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+
+/* 3. Setiap Kotak Judul Kolom */
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: #5b93d3;
+    -fx-border-width: 0 1px 0 0; /* Garis pemisah antar kolom di header */
+    -fx-pref-height: 45px;
+}
+
+/* Menghilangkan garis kanan pada kolom paling akhir agar tidak double border */
+.table-view .column-header:last-visible {
+    -fx-border-width: 0;
+}
+
+/* 4. Teks Judul Header (Rata kiri, tebal, warna biru gelap) */
+.table-view .column-header .label {
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 0 0 15px;
+    -fx-text-fill: #1e293b;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+/* 5. Baris Tabel (Menghilangkan warna belang ganjil/genap bawaan JavaFX) */
+.table-row-cell {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #5b93d3;
+    -fx-border-width: 0 0 1px 0; /* Garis pemisah antar baris */
+    -fx-cell-size: 35px; /* Tinggi tiap baris */
+}
+
+/* Efek saat baris dipilih atau di-hover */
+.table-row-cell:hover {
+    -fx-background-color: #f1f5f9;
+}
+.table-row-cell:selected {
+    -fx-background-color: #e0f2fe;
+}
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: #1e293b;
+}
+
+/* 6. Sel Tabel (Garis vertikal antar kolom) */
+.table-cell {
+    -fx-border-color: #5b93d3;
+    -fx-border-width: 0 1px 0 0;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 0 0 15px;
+    -fx-text-fill: #334155;
+    -fx-font-size: 13px;
+}
+
+.table-cell:last-visible {
+    -fx-border-width: 0;
+}
+
+/* Menghilangkan garis fokus biru kotak bawaan saat tabel diklik */
+.table-view:focused {
+    -fx-background-insets: 0;
+}
