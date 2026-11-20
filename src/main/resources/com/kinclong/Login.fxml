@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: EEF6FC;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox>
+         <children>
+            <VBox alignment="CENTER" prefHeight="1024.0" prefWidth="770.0" style="-fx-background-color: #B8E4FF; -fx-border-color: #D5E5F3; -fx-border-width: 0 2 0 0;">
+               <padding>
+                  <Insets bottom="30.0" left="32.0" right="32.0" top="30.0" />
+               </padding>
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../assets/logo%20konclong.png" />
+                     </image>
+                  </ImageView>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Label text="Kin" textFill="#2f4a6b">
+                           <font>
+                              <Font name="Plus Jakarta Sans ExtraBold" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label text="clong" textFill="#5b96d3">
+                           <font>
+                              <Font name="Plus Jakarta Sans ExtraBold" size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Region prefHeight="30.0" />
+                  <VBox>
+                     <children>
+                        <Label prefHeight="39.0" prefWidth="704.0" text="Kelola cucian, pelanggan, dan pembayaran" textFill="#235e8b">
+                           <font>
+                              <Font name="Plus Jakarta Sans ExtraBold" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="39.0" prefWidth="704.0" text="dalam satu aplikasi." textFill="#235e8b">
+                           <font>
+                              <Font name="Plus Jakarta Sans ExtraBold" size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>
