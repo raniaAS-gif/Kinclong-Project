@@ -8,20 +8,21 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1048.0" style="-fx-background-color: #fafcfe;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1046.0" style="-fx-background-color: #fafcfe;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox />
-      <Label text="Nominal diterima:" textFill="#a9b0b5">
-         <font>
-            <Font name="Inter 24pt Medium" size="15.0" />
-         </font>
-      </Label>
-      <TextField promptText="Masukkan nominal uang diterima" style="-fx-background-color: #fafcfe; -fx-background-radius: 10; -fx-border-color: #5b96d3; -fx-border-radius: 10;">
-         <font>
-            <Font name="Plus Jakarta Sans SemiBold" size="20.0" />
-         </font>
-      </TextField>
+      <VBox>
+         <children>
+            <Label text="Nominal diterima:" textFill="#a9b0b5">
+               <font>
+                  <Font name="Inter 24pt Medium" size="15.0" />
+               </font>
+            </Label>
+            <TextField promptText="Masukkan nominal uang diterima" style="-fx-background-color: #fafcfe; -fx-background-radius: 10; -fx-border-color: #5b96d3; -fx-border-radius: 10;">
+               <font>
+                  <Font name="Plus Jakarta Sans SemiBold" size="20.0" />
+               </font>
+            </TextField>
+         </children></VBox>
       <Region prefHeight="30.0" />
       <HBox alignment="CENTER_LEFT">
          <children>
@@ -30,7 +31,7 @@
                   <Font name="Plus Jakarta Sans ExtraBold" size="30.0" />
                </font>
             </Label>
-            <HBox alignment="CENTER_RIGHT" maxWidth="892.0" prefWidth="892.0">
+            <HBox alignment="CENTER_RIGHT" maxWidth="892.0" prefWidth="890.0">
                <children>
                   <Label text="Rp." textFill="#2f4a6b">
                      <font>

@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.StackPane?>
 
-<BorderPane
-    xmlns="http://javafx.com/javafx/26"
-    xmlns:fx="http://javafx.com/fxml/1">
-
-    <left>
-        <fx:include source="sidebarKasir.fxml"/>
-    </left>
-
-    <center>
-        <fx:include source="cariPembayaran.fxml"/>
-    </center>
+<BorderPane fx:id="rootLayout" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kinclong.controller.MainLayoutController">
+   <center>
+      <ScrollPane fx:id="mainContentArea" fitToWidth="true" style="-fx-background-color: transparent; -fx-background: #EEF6FC;" />
+   </center>
 
 </BorderPane>

@@ -6,6 +6,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
@@ -60,13 +62,20 @@
                </children>
             </VBox>
             <Region prefWidth="20.0" />
-            <VBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="238.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="60.0">
                <children>
                   <Region prefHeight="30.0" prefWidth="133.0" />
-                  <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="238.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 10;" text="Generate Laporan" textFill="#fafcfe">
+                  <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="280.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 10;" text="Generate Laporan" textFill="#fafcfe">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="20.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../assets/icons8-document-96%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
                </children>
             </VBox>
