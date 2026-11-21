@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1048.0" style="-fx-background-color: #fafcfe;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox>
+         <children>
+            <Label text="Nomor kartu:" textFill="#a9b0b5">
+               <font>
+                  <Font name="Inter 24pt Medium" size="15.0" />
+               </font>
+            </Label>
+            <TextField promptText="Masukkan 4 digit terakhir kartu" style="-fx-background-color: #fafcfe; -fx-background-radius: 10; -fx-border-color: #5b96d3; -fx-border-radius: 10;">
+               <font>
+                  <Font name="Plus Jakarta Sans SemiBold" size="20.0" />
+               </font>
+            </TextField>
+         </children></VBox>
+      <Region prefHeight="30.0" />
+      <VBox>
+         <children>
+            <Label text="Kode persetujuan / No. referensi mesin EDC: " textFill="#a9b0b5">
+               <font>
+                  <Font name="Inter 24pt Medium" size="15.0" />
+               </font>
+            </Label>
+            <TextField promptText="Masukkan kode persetujuan / no. referensi mesin EDC" style="-fx-background-color: #fafcfe; -fx-background-radius: 10; -fx-border-color: #5b96d3; -fx-border-radius: 10;">
+               <font>
+                  <Font name="Plus Jakarta Sans SemiBold" size="20.0" />
+               </font>
+            </TextField>
+         </children>
+      </VBox>
+      <Region prefHeight="30.0" />
+      <VBox>
+         <children>
+            <Label text="Nominal ditagihkan:" textFill="#a9b0b5">
+               <font>
+                  <Font name="Inter 24pt Medium" size="15.0" />
+               </font>
+            </Label>
+            <TextField promptText="Nominal ditagihkan" style="-fx-background-color: #fafcfe; -fx-background-radius: 10; -fx-border-color: #5b96d3; -fx-border-radius: 10;">
+               <font>
+                  <Font name="Plus Jakarta Sans SemiBold" size="20.0" />
+               </font>
+            </TextField>
+         </children>
+      </VBox>
+   </children>
+</VBox>

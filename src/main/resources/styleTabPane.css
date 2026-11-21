@@ -1,0 +1,53 @@
+
+/* Menghilangkan background default TabPane */
+.tab-pane {
+    -fx-background-color: transparent;
+    -fx-tab-min-height: 35px;
+    -fx-tab-max-height: 35px;
+}
+
+/* Area header tab */
+.tab-pane .tab-header-area {
+    -fx-background-color: transparent;
+    -fx-padding: 0 0 0 0;
+}
+
+/* Area tempat tab berada */
+.tab-pane .tab-header-background {
+    -fx-background-color: transparent;
+}
+
+/* Tab yang tidak aktif */
+.tab-pane .tab {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-padding: 0 10 0 10;
+    -fx-border-width: 0 0 0 0;
+}
+
+/* Teks tab */
+.tab-pane .tab .tab-label {
+    -fx-text-fill: #29496F;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* Tab aktif */
+.tab-pane .tab:selected {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #173F80 transparent;
+    -fx-border-width: 0 0 4 0;
+}
+
+/* Garis bawah seluruh area tab */
+.tab-pane .tab-header-area {
+    -fx-border-color: transparent transparent #333333 transparent;
+    -fx-border-width: 0 0 2 0;
+}
+
+/* Menghilangkan garis default di area konten */
+.tab-pane .tab-content-area {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
