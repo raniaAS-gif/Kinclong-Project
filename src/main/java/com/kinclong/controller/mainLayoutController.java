@@ -1,4 +1,4 @@
-package com.kinclong;
+package com.kinclong.controller;
 public class mainLayoutController {
 
 }
