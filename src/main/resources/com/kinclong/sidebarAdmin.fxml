@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="Infinity" maxWidth="288.0" style="-fx-background-color: #FAFCFE; -fx-border-color: #D5E5F3; -fx-border-width: 0 1 0 0;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+   <padding>
+      <Insets bottom="30.0" left="24.0" right="24.0" top="30.0" />
+   </padding>
+   <children>
+      <HBox>
+         <children>
+            <Label text="Kin" textFill="#2f4a6b">
+               <font>
+                  <Font name="Plus Jakarta Sans ExtraBold" size="30.0" />
+               </font>
+            </Label>
+            <Label text="clong" textFill="#5b96d3">
+               <font>
+                  <Font name="Plus Jakarta Sans ExtraBold" size="30.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="24.0" right="24.0" />
+         </padding>
+      </HBox>
+      <VBox alignment="CENTER_LEFT">
+         <children>
+            <HBox>
+               <children>
+                  <ImageView fitHeight="39.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../assets/icons8-dashboard-32.png" />
+                     </image>
+                  </ImageView>
+                  <VBox>
+                     <children>
+                        <Label text="Dashboard" textFill="#5b96d3">
+                           <font>
+                              <Font name="Plus Jakarta Sans SemiBold" size="15.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="24.0" right="24.0" top="20.0" />
+         </padding>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+      <VBox alignment="CENTER_LEFT">
+         <children>
+            <HBox>
+               <children>
+                  <ImageView fitHeight="39.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../assets/icons8-database-96.png" />
+                     </image>
+                  </ImageView>
+                  <VBox>
+                     <children>
+                        <Label text="Kelola Master Data" textFill="#5b96d3">
+                           <font>
+                              <Font name="Plus Jakarta Sans SemiBold" size="15.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="24.0" right="24.0" top="20.0" />
+         </padding>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+      <VBox alignment="CENTER_LEFT">
+         <children>
+            <HBox>
+               <children>
+                  <ImageView fitHeight="39.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../assets/icons8-document-96.png" />
+                     </image>
+                  </ImageView>
+                  <VBox>
+                     <children>
+                        <Label style="-fx-background-color: 5B96D3;" text="Laporan Pendapatan" textFill="#5b96d3">
+                           <font>
+                              <Font name="Plus Jakarta Sans SemiBold" size="15.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="24.0" right="24.0" top="20.0" />
+         </padding>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+      <VBox alignment="BOTTOM_CENTER" VBox.vgrow="ALWAYS">
+         <children>
+            <VBox style="-fx-background-color: #EEF6FC; -fx-background-radius: 10;">
+               <children>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../assets/icons8-person-90.png" />
+                           </image>
+                        </ImageView>
+                        <VBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label text="Esai" textFill="#2f4a6b">
+                                 <font>
+                                    <Font name="Plus Jakarta Sans Medium" size="20.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label text="Admin" textFill="#5b96d3">
+                                 <font>
+                                    <Font name="Inter 24pt Regular" size="12.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../assets/icons8-logout-48.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="65.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="24.0" right="24.0" top="20.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>

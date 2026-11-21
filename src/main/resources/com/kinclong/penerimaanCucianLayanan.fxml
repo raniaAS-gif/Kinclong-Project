@@ -128,13 +128,13 @@
             <Region maxWidth="1006.0" prefWidth="1006.0" HBox.hgrow="ALWAYS" />
             <HBox alignment="CENTER_RIGHT">
                <children>
-                  <Button alignment="CENTER" mnemonicParsing="false" prefWidth="120.0" style="-fx-background-color: #5b96d3; -fx-background-radius: 100;" text="Kembali" textFill="#fafefc">
+                  <Button alignment="CENTER" mnemonicParsing="false" prefWidth="120.0" style="-fx-background-color: #5b96d3; -fx-background-radius: 100;" text="Kembali" textFill="#fafcfe">
                      <font>
                         <Font name="Plus Jakarta Sans SemiBold" size="20.0" />
                      </font>
                   </Button>
                   <Region prefWidth="10.0" />
-                  <Button alignment="CENTER" mnemonicParsing="false" prefWidth="120.0" style="-fx-background-color: #5b96d3; -fx-background-radius: 100;" text="Lanjut" textFill="#fafefc">
+                  <Button alignment="CENTER" mnemonicParsing="false" prefWidth="120.0" style="-fx-background-color: #5b96d3; -fx-background-radius: 100;" text="Lanjut" textFill="#fafcfe">
                      <font>
                         <Font name="Plus Jakarta Sans SemiBold" size="20.0" />
                      </font>
