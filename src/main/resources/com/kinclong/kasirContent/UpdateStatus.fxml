@@ -38,7 +38,7 @@
                      <children>
                         <ImageView fitHeight="79.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../assets/icons8-test-passed-100.png" />
+                              <Image url="@../../assets/icons8-test-passed-100.png" />
                            </image>
                         </ImageView>
                         <VBox alignment="CENTER_LEFT">
@@ -75,7 +75,7 @@
                      <children>
                         <ImageView fitHeight="79.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../assets/icons8-washing-100.png" />
+                              <Image url="@../../assets/icons8-washing-100.png" />
                            </image>
                         </ImageView>
                         <VBox alignment="CENTER_LEFT">
@@ -112,7 +112,7 @@
                      <children>
                         <ImageView fitHeight="79.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../assets/icons8-scorecard-100.png" />
+                              <Image url="@../../assets/icons8-scorecard-100.png" />
                            </image>
                         </ImageView>
                         <VBox alignment="CENTER_LEFT">
@@ -158,7 +158,7 @@
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../assets/icons8-search-90%20(1).png" />
+                              <Image url="@../../assets/icons8-search-90%20(1).png" />
                            </image>
                         </ImageView>
                      </graphic>
