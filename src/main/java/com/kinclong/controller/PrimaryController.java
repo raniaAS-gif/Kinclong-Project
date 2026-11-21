@@ -1,5 +1,6 @@
 package com.kinclong.controller;
 
+import com.kinclong.App;
 import java.io.IOException;
 import javafx.fxml.FXML;
 

@@ -5,7 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 
-public class PleaseProvideControllerClassName {
+public class penerimaanCucianController {
 
     @FXML
     private Button btnSearch;
