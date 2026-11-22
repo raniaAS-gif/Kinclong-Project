@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Pembayaran {
     private int idPembayaran;
-    private String metodeBayar; // "CASH", "QRIS", "TRANSFER"
+    private String metodeBayar;
     private LocalDate tanggalBayar;
     private double nominalUang;
 
