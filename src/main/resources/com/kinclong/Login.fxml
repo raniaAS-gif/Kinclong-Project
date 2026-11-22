@@ -13,11 +13,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefWidth="1440.0" style="-fx-background-color: EEF6FC;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefWidth="1440.0" style="-fx-background-color: EEF6FC;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kinclong.controller.LoginController">
    <children>
-      <HBox>
+      <HBox maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
          <children>
-            <VBox alignment="CENTER" prefWidth="770.0" style="-fx-background-color: #B8E4FF; -fx-border-color: #D5E5F3; -fx-border-width: 0 2 0 0;">
+            <VBox alignment="CENTER" prefWidth="770.0" style="-fx-background-color: #B8E4FF; -fx-border-color: #D5E5F3; -fx-border-width: 0 2 0 0;" HBox.hgrow="ALWAYS">
                <padding>
                   <Insets bottom="30.0" left="32.0" right="32.0" top="30.0" />
                </padding>
@@ -58,7 +58,7 @@
                   </VBox>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefWidth="670.0">
+            <VBox alignment="CENTER" prefWidth="670.0" HBox.hgrow="ALWAYS">
                <children>
                   <Region prefHeight="50.0" />
                   <Label contentDisplay="TOP" text="Masuk" textFill="#235e8b">
@@ -96,7 +96,7 @@
                               <Image url="@../../assets/icons8-person-90.png" />
                            </image>
                         </ImageView>
-                        <TextField fx:id="textUsername" prefWidth="528.0" promptText="Username" style="-fx-background-color: transparent;">
+                        <TextField fx:id="textUsername" onKeyTyped="#sembunyikanEror" prefWidth="528.0" promptText="Username" style="-fx-background-color: transparent;">
                            <font>
                               <Font name="Inter 24pt ExtraBold" size="24.0" />
                            </font>
@@ -114,7 +114,7 @@
                               <Image url="@../../assets/icons8-key-96.png" />
                            </image>
                         </ImageView>
-                        <PasswordField fx:id="textPassword" prefWidth="528.0" promptText="Password" style="-fx-background-color: transparent;">
+                        <PasswordField fx:id="textPassword" onKeyTyped="#sembunyikanEror" prefWidth="528.0" promptText="Password" style="-fx-background-color: transparent;">
                            <font>
                               <Font name="Inter 24pt ExtraBold" size="24.0" />
                            </font>
@@ -124,6 +124,11 @@
                         <Insets left="20.0" right="20.0" />
                      </padding>
                   </HBox>
+                  <Label fx:id="labelEror" prefWidth="614.0" text="Pesan eror" textFill="#ed2f16" visible="false" wrapText="true">
+                     <font>
+                        <Font name="Inter 24pt Medium" size="15.0" />
+                     </font>
+                  </Label>
                   <Region prefHeight="50.0" />
                   <Button fx:id="buttonMasuk" mnemonicParsing="false" onAction="#klikMasuk" prefHeight="86.0" prefWidth="614.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 25; -fx-border-color: #588CC3; -fx-border-radius: 25;" text="Masuk" textFill="#fafefc">
                      <font>

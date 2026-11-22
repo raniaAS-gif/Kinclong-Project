@@ -1,11 +1,19 @@
 package com.kinclong.dao;
 
-import com.kinclong.model.*;
-import com.kinclong.util.DatabaseConnection;
-
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.kinclong.model.DetailTransaksi;
+import com.kinclong.model.Layanan;
+import com.kinclong.model.Pelanggan;
+import com.kinclong.model.Transaksi;
+import com.kinclong.util.DatabaseConnection;
 
 public class TransaksiDAO {
 
@@ -94,6 +102,26 @@ public class TransaksiDAO {
         }
     }
 
+    public List<Transaksi> getAllUntukUpdateStatus() {
+        List<Transaksi> list = new ArrayList<>();
+        String sql ="SELECT t.*, p.nama AS nama_pelanggan, p.nomor_telepon " +
+                    "FROM transaksi t " +
+                    "JOIN pelanggan p ON t.id_pelanggan = p.id_pelanggan " +
+                    "ORDER BY t.id_transaksi DESC";
+        try (Connection conn = DatabaseConnection.getConnection();
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql)) {
+            while (rs.next()) {
+                Transaksi t = mapRow(rs);
+                t.setListDetail(getDetailByTransaksi(t.getIdTransaksi()));
+                list.add(t);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
     public List<Transaksi> getTagihanSiapBayar(String keyword) {
         List<Transaksi> list = new ArrayList<>();
         String sql = "SELECT t.*, p.nama AS nama_pelanggan, p.nomor_telepon " +
@@ -151,6 +179,57 @@ public class TransaksiDAO {
             e.printStackTrace();
         }
         return list;
+    }
+
+    public int getNextIdTransaksi() {
+        String sql = "SELECT COALESCE(MAX(id_transaksi), 0) + 1 AS next_id FROM transaksi";
+        try (Connection conn = DatabaseConnection.getConnection();
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql)) {
+            if (rs.next()) {
+                return rs.getInt("next_id");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 1;
+    }
+
+    // DTO untuk Dashboard & Laporan di dalam TransaksiDAO
+    public static class LayananTerlarisItem {
+        private final String namaLayanan;
+        private final int jumlahOrder;
+        private final double persentase;
+
+        public LayananTerlarisItem(String namaLayanan, int jumlahOrder, double persentase) {
+            this.namaLayanan = namaLayanan;
+            this.jumlahOrder = jumlahOrder;
+            this.persentase = persentase;
+        }
+        public String getNamaLayanan() { return namaLayanan; }
+        public int getJumlahOrder() { return jumlahOrder; }
+        public double getPersentase() { return persentase; }
+    }
+
+    public static class LaporanItem {
+        private final int no;
+        private final String noNota;
+        private final java.time.LocalDate tanggal;
+        private final String namaKasir;
+        private final double totalPendapatan;
+
+        public LaporanItem(int no, String noNota, java.time.LocalDate tanggal, String namaKasir, double totalPendapatan) {
+            this.no = no;
+            this.noNota = noNota;
+            this.tanggal = tanggal;
+            this.namaKasir = namaKasir;
+            this.totalPendapatan = totalPendapatan;
+        }
+        public int getNo() { return no; }
+        public String getNoNota() { return noNota; }
+        public java.time.LocalDate getTanggal() { return tanggal; }
+        public String getNamaKasir() { return namaKasir; }
+        public double getTotalPendapatan() { return totalPendapatan; }
     }
 
     private Transaksi mapRow(ResultSet rs) throws SQLException {
