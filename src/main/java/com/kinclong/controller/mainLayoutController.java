@@ -8,7 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
 
-public class MainLayoutController {
+public class mainLayoutController {
 
     @FXML
     private ScrollPane mainContentArea;
