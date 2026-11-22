@@ -17,14 +17,12 @@ public class DetailTransaksi {
         hitungSubtotal();
     }
 
-    // Method sesuai Class Diagram
     public void hitungSubtotal() {
         if (this.layanan != null) {
             this.totalHarga = this.jumlah * this.layanan.getHargaPerUnit();
         }
     }
 
-    // Getter & Setter sesuai Class Diagram
     public int getNomorUrut() { return nomorUrut; }
     public void setNomorUrut(int nomorUrut) { this.nomorUrut = nomorUrut; }
 
@@ -46,7 +44,7 @@ public class DetailTransaksi {
         hitungSubtotal();
     }
 
-    // Helper getter agar mudah ditampilkan langsung di kolom TableView JavaFX
+    // --- Helper untuk TableView JavaFX ---
     public String getNamaLayanan() {
         return layanan != null ? layanan.getNamaLayanan() : "";
     }

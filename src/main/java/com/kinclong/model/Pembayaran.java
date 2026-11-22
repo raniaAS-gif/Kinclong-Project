@@ -19,7 +19,6 @@ public class Pembayaran {
         this.nominalUang = nominalUang;
     }
 
-    // Method sesuai Class Diagram
     public double hitungKembalian(double totalTagihan) {
         if ("QRIS".equalsIgnoreCase(metodeBayar) || "TRANSFER".equalsIgnoreCase(metodeBayar)) {
             return 0.0;
