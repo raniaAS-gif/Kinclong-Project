@@ -33,7 +33,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 
-public class UpdateStatusControlller implements Initializable, SidebarSwitching {
+public class UpdateStatusController implements Initializable, SidebarSwitching {
 
     private MainLayoutController mainLayoutController;
 

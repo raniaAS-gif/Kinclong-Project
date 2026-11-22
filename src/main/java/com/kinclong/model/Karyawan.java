@@ -35,7 +35,6 @@ public abstract class Karyawan {
         return "AKTIF".equalsIgnoreCase(this.status);
     }
 
-    // Getter & Setter
     public int getIdKaryawan() { return idKaryawan; }
     public void setIdKaryawan(int idKaryawan) { this.idKaryawan = idKaryawan; }
 

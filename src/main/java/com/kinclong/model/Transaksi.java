@@ -36,7 +36,6 @@ public class Transaksi {
 
     public void hapusDetailItem(DetailTransaksi item) {
         this.listDetail.remove(item);
-        // Rapikan ulang nomor urut setelah item dihapus
         for (int i = 0; i < this.listDetail.size(); i++) {
             this.listDetail.get(i).setNomorUrut(i + 1);
         }
@@ -53,6 +52,7 @@ public class Transaksi {
         return this.pembayaran != null;
     }
 
+    // --- Getter & Setter ---
     public int getIdTransaksi() { return idTransaksi; }
     public void setIdTransaksi(int idTransaksi) { this.idTransaksi = idTransaksi; }
 
@@ -80,6 +80,7 @@ public class Transaksi {
     public List<DetailTransaksi> getListDetail() { return listDetail; }
     public void setListDetail(List<DetailTransaksi> listDetail) { this.listDetail = listDetail; }
 
+    // --- Helper untuk TableView JavaFX ---
     public String getNamaPelanggan() {
         return pelanggan != null ? pelanggan.getNama() : "";
     }
