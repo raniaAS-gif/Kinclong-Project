@@ -18,7 +18,7 @@ public class Kasir extends Karyawan {
 
     @Override
     public String tampilkanDashboard() {
-        return "/com/kinclong/dashboardKasir.fxml";
+        return "com/kinclong/kasirContent/DashboardKasir.fxml";
     }
 
     public boolean tambahPelanggan(Pelanggan pelanggan) {

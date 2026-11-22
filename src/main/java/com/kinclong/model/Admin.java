@@ -20,7 +20,7 @@ public class Admin extends Karyawan {
 
     @Override
     public String tampilkanDashboard() {
-        return "/com/kinclong/dashboardAdmin.fxml";
+        return "com/kinclong/adminContent/DashboardAdmin.fxml";
     }
     
     public boolean tambahLayanan(Layanan layanan) {

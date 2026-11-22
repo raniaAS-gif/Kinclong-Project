@@ -195,7 +195,7 @@ public class TransaksiDAO {
         return 1;
     }
 
-    // DTO untuk Dashboard & Laporan di dalam TransaksiDAO
+    // --- DTO untuk Dashboard Admin & Laporan Pendapatan ---
     public static class LayananTerlarisItem {
         private final String namaLayanan;
         private final int jumlahOrder;
@@ -230,6 +230,202 @@ public class TransaksiDAO {
         public java.time.LocalDate getTanggal() { return tanggal; }
         public String getNamaKasir() { return namaKasir; }
         public double getTotalPendapatan() { return totalPendapatan; }
+    }
+
+    // 1. Total omzet bulan berjalan
+    public double getOmzetBulanIni() {
+        String sql = "SELECT COALESCE(SUM(total_bayar), 0) FROM transaksi " +
+                    "WHERE MONTH(tanggal_transaksi) = MONTH(CURDATE()) " +
+                    "AND YEAR(tanggal_transaksi) = YEAR(CURDATE())";
+        try (Connection conn = DatabaseConnection.getConnection();
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql)) {
+            if (rs.next()) {
+                return rs.getDouble(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0.0;
+    }
+
+    // 2. Pendapatan 7 hari terakhir (urut dari 6 hari lalu hingga hari ini)
+    public java.util.Map<java.time.LocalDate, Double> getPendapatan7HariTerakhir() {
+        java.util.Map<java.time.LocalDate, Double> hasil = new java.util.LinkedHashMap<>();
+        java.time.LocalDate hariIni = java.time.LocalDate.now();
+        for (int i = 6; i >= 0; i--) {
+            hasil.put(hariIni.minusDays(i), 0.0);
+        }
+
+        String sql = "SELECT tanggal_transaksi, COALESCE(SUM(total_bayar), 0) AS total " +
+                    "FROM transaksi " +
+                    "WHERE tanggal_transaksi BETWEEN ? AND ? " +
+                    "GROUP BY tanggal_transaksi";
+        try (Connection conn = DatabaseConnection.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setDate(1, Date.valueOf(hariIni.minusDays(6)));
+            ps.setDate(2, Date.valueOf(hariIni));
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    java.time.LocalDate tgl = rs.getDate("tanggal_transaksi").toLocalDate();
+                    hasil.put(tgl, rs.getDouble("total"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return hasil;
+    }
+
+    // 3. Hanya 4 layanan terlaris dalam 7 hari terakhir (minggu ini)
+    public List<LayananTerlarisItem> getTop4LayananMingguIni() {
+        List<LayananTerlarisItem> list = new ArrayList<>();
+        java.time.LocalDate hariIni = java.time.LocalDate.now();
+        java.time.LocalDate awalMinggu = hariIni.minusDays(6);
+
+        String sqlTotal = "SELECT COUNT(*) FROM detail_transaksi dt " +
+                        "JOIN transaksi t ON dt.id_transaksi = t.id_transaksi " +
+                        "WHERE t.tanggal_transaksi BETWEEN ? AND ?";
+
+        String sqlTop4 = "SELECT l.nama_layanan, COUNT(dt.id_layanan) AS jml " +
+                        "FROM detail_transaksi dt " +
+                        "JOIN transaksi t ON dt.id_transaksi = t.id_transaksi " +
+                        "JOIN layanan l ON dt.id_layanan = l.id_layanan " +
+                        "WHERE t.tanggal_transaksi BETWEEN ? AND ? " +
+                        "GROUP BY l.id_layanan, l.nama_layanan " +
+                        "ORDER BY jml DESC LIMIT 4";
+
+        try (Connection conn = DatabaseConnection.getConnection()) {
+            int totalOrderMingguIni = 0;
+            try (PreparedStatement psTot = conn.prepareStatement(sqlTotal)) {
+                psTot.setDate(1, Date.valueOf(awalMinggu));
+                psTot.setDate(2, Date.valueOf(hariIni));
+                try (ResultSet rsTot = psTot.executeQuery()) {
+                    if (rsTot.next()) totalOrderMingguIni = rsTot.getInt(1);
+                }
+            }
+
+            try (PreparedStatement psTop = conn.prepareStatement(sqlTop4)) {
+                psTop.setDate(1, Date.valueOf(awalMinggu));
+                psTop.setDate(2, Date.valueOf(hariIni));
+                try (ResultSet rs = psTop.executeQuery()) {
+                    while (rs.next()) {
+                        int jml = rs.getInt("jml");
+                        double persen = totalOrderMingguIni > 0 ? (jml * 100.0 / totalOrderMingguIni) : 0.0;
+                        list.add(new LayananTerlarisItem(rs.getString("nama_layanan"), jml, persen));
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    // 4. Data rekapitulasi laporan pendapatan berdasarkan rentang tanggal
+    public List<LaporanItem> getLaporanPendapatan(java.time.LocalDate awal, java.time.LocalDate akhir) {
+        List<LaporanItem> list = new ArrayList<>();
+        String sql = "SELECT t.id_transaksi, t.tanggal_transaksi, k.nama_karyawan, t.total_bayar " +
+                    "FROM transaksi t " +
+                    "JOIN karyawan k ON t.id_karyawan = k.id_karyawan " +
+                    "WHERE t.tanggal_transaksi BETWEEN ? AND ? " +
+                    "ORDER BY t.tanggal_transaksi ASC, t.id_transaksi ASC";
+        try (Connection conn = DatabaseConnection.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setDate(1, Date.valueOf(awal));
+            ps.setDate(2, Date.valueOf(akhir));
+            try (ResultSet rs = ps.executeQuery()) {
+                int no = 1;
+                while (rs.next()) {
+                    int idTrans = rs.getInt("id_transaksi");
+                    list.add(new LaporanItem(
+                            no++,
+                            String.format("TRX-%04d", idTrans),
+                            rs.getDate("tanggal_transaksi").toLocalDate(),
+                            rs.getString("nama_karyawan"),
+                            rs.getDouble("total_bayar")
+                    ));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    // Pemasukan berdasarkan selisih hari (0 = hari ini, 1 = kemarin)
+    public double getPemasukanHarian(int selisihHari) {
+        String sql = "SELECT COALESCE(SUM(total_bayar), 0) FROM transaksi " +
+                     "WHERE tanggal_transaksi = DATE_SUB(CURDATE(), INTERVAL ? DAY)";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, selisihHari);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) return rs.getDouble(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0.0;
+    }
+
+    // Pemasukan minggu berjalan (Senin - Minggu)
+    public double getPemasukanMingguIni() {
+        String sql = "SELECT COALESCE(SUM(total_bayar), 0) FROM transaksi " +
+                     "WHERE YEARWEEK(tanggal_transaksi, 1) = YEARWEEK(CURDATE(), 1)";
+        try (Connection conn = DatabaseConnection.getConnection();
+             Statement st = conn.createStatement();
+             ResultSet rs = st.executeQuery(sql)) {
+            if (rs.next()) return rs.getDouble(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0.0;
+    }
+
+    // Jumlah transaksi berdasarkan selisih hari (0 = hari ini, 1 = kemarin)
+    public int getJumlahTransaksiHarian(int selisihHari) {
+        String sql = "SELECT COUNT(*) FROM transaksi " +
+                     "WHERE tanggal_transaksi = DATE_SUB(CURDATE(), INTERVAL ? DAY)";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, selisihHari);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) return rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    // Jumlah transaksi minggu berjalan
+    public int getJumlahTransaksiMingguIni() {
+        String sql = "SELECT COUNT(*) FROM transaksi " +
+                     "WHERE YEARWEEK(tanggal_transaksi, 1) = YEARWEEK(CURDATE(), 1)";
+        try (Connection conn = DatabaseConnection.getConnection();
+             Statement st = conn.createStatement();
+             ResultSet rs = st.executeQuery(sql)) {
+            if (rs.next()) return rs.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    // Jumlah transaksi bulan berjalan
+    public int getJumlahTransaksiBulanIni() {
+        String sql = "SELECT COUNT(*) FROM transaksi " +
+                     "WHERE MONTH(tanggal_transaksi) = MONTH(CURDATE()) " +
+                     "AND YEAR(tanggal_transaksi) = YEAR(CURDATE())";
+        try (Connection conn = DatabaseConnection.getConnection();
+             Statement st = conn.createStatement();
+             ResultSet rs = st.executeQuery(sql)) {
+            if (rs.next()) return rs.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     private Transaksi mapRow(ResultSet rs) throws SQLException {

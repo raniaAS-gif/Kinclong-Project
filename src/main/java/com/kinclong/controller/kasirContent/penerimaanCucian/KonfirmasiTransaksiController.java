@@ -129,7 +129,7 @@ public class KonfirmasiTransaksiController implements Initializable, SidebarSwit
     @FXML
     void klikKembali(ActionEvent event) {
         if (mainLayoutController != null) {
-            mainLayoutController.loadPage("/com/kinclong/PenerimaanCucianLayanan.fxml");
+            mainLayoutController.loadPage("/com/kinclong/kasirContent/penerimaanCucian/PenerimaanCucianLayanan.fxml");
         }
     }
 
@@ -143,7 +143,7 @@ public class KonfirmasiTransaksiController implements Initializable, SidebarSwit
         Optional<ButtonType> hasil = confirm.showAndWait();
         if (hasil.isPresent() && hasil.get() == ButtonType.OK && mainLayoutController != null) {
             mainLayoutController.setTransaksiAktif(null);
-            mainLayoutController.loadPage("/com/kinclong/PenerimaanCucian.fxml");
+            mainLayoutController.loadPage("/com/kinclong/kasirContent/penerimaanCucian/PenerimaanCucian.fxml");
         }
     }
 
@@ -174,7 +174,7 @@ public class KonfirmasiTransaksiController implements Initializable, SidebarSwit
 
             if (mainLayoutController != null) {
                 mainLayoutController.setTransaksiAktif(null);
-                mainLayoutController.loadPage("/com/kinclong/PenerimaanCucian.fxml");
+                mainLayoutController.loadPage("/com/kinclong/kasirContent/penerimaanCucian/PenerimaanCucian.fxml");
             }
         } else {
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);

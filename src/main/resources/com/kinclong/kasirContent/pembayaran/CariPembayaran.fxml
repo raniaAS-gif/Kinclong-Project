@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxWidth="1152.0" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1152.0" style="-fx-background-color: #EEF6FC;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxWidth="1152.0" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1152.0" style="-fx-background-color: #EEF6FC;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kinclong.controller.kasirContent.pembayaran.CariPembayaranController">
    <children>
       <VBox>
          <children>
@@ -33,7 +33,7 @@
                      <children>
                         <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/icons8-receipt-declined-100.png" />
+                              <Image url="@../../../../assets/icons8-receipt-declined-100.png" />
                            </image>
                         </ImageView>
                         <VBox alignment="CENTER_LEFT">
@@ -43,7 +43,7 @@
                                     <Font name="Inter 24pt Regular" size="20.0" />
                                  </font>
                               </Label>
-                              <Label text="0" textFill="#5b96d3">
+                              <Label fx:id="lblBelumLunas" text="0" textFill="#5b96d3">
                                  <font>
                                     <Font name="Inter 24pt ExtraBold" size="30.0" />
                                  </font>
@@ -70,7 +70,7 @@
                      <children>
                         <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/icons8-receipt-approved-100.png" />
+                              <Image url="@../../../../assets/icons8-receipt-approved-100.png" />
                            </image>
                         </ImageView>
                         <VBox alignment="CENTER_LEFT">
@@ -80,7 +80,7 @@
                                     <Font name="Inter 24pt Regular" size="20.0" />
                                  </font>
                               </Label>
-                              <Label text="0" textFill="#5b96d3">
+                              <Label fx:id="lblLunasHariIni" text="0" textFill="#5b96d3">
                                  <font>
                                     <Font name="Inter 24pt ExtraBold" size="30.0" />
                                  </font>
@@ -107,7 +107,7 @@
                      <children>
                         <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/icons8-money-96.png" />
+                              <Image url="@../../../../assets/icons8-money-96.png" />
                            </image>
                         </ImageView>
                         <VBox alignment="CENTER_LEFT">
@@ -127,7 +127,7 @@
                                           <Insets right="5.0" />
                                        </padding>
                                     </Label>
-                                    <Label text="0" textFill="#5b96d3">
+                                    <Label fx:id="lblTotalSisaTagihan" text="0" textFill="#5b96d3">
                                        <font>
                                           <Font name="Inter 24pt ExtraBold" size="30.0" />
                                        </font>
@@ -151,7 +151,7 @@
       <Region prefHeight="30.0" />
       <HBox alignment="CENTER_LEFT" style="-fx-background-color: #FAFCFE; -fx-background-radius: 100; -fx-border-color: #D5E5F3; -fx-border-width: 1; -fx-border-radius: 100;">
          <children>
-            <TextField prefHeight="50.0" prefWidth="722.0" promptText="Cari No. Nota / Nama Pelanggan" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
+            <TextField fx:id="txtCari" onAction="#handleCari" prefHeight="50.0" prefWidth="722.0" promptText="Cari No. Nota / Nama Pelanggan" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
                <font>
                   <Font name="Inter 24pt Regular" size="15.0" />
                </font>
@@ -159,11 +159,11 @@
                   <Insets />
                </opaqueInsets>
             </TextField>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="78.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 1000;">
+            <Button fx:id="btnCari" mnemonicParsing="false" onAction="#handleCari" prefHeight="50.0" prefWidth="78.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 1000;">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../assets/icons8-search-90%20(1).png" />
+                        <Image url="@../../../../assets/icons8-search-90%20(1).png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -171,13 +171,13 @@
          </children>
       </HBox>
       <Region prefHeight="30.0" />
-      <TableView style="-fx-background-color: #FAFCFE; -fx-background-radius: 10; -fx-border-color: #5B96D3; -fx-border-radius: 10;" stylesheets="@../../styleTabel.css">
+      <TableView fx:id="tblPembayaran" style="-fx-background-color: #FAFCFE; -fx-background-radius: 10; -fx-border-color: #5B96D3; -fx-border-radius: 10;" stylesheets="@../../../../css/styleTabel.css" VBox.vgrow="ALWAYS">
          <columns>
-            <TableColumn prefWidth="111.5" text="No. Nota" />
-            <TableColumn prefWidth="374.5" text="Pelanggan" />
-            <TableColumn prefWidth="203.5" text="Total Tagihan" />
-            <TableColumn prefWidth="186.0" text="Status Cucian" />
-            <TableColumn prefWidth="178.0" />
+            <TableColumn fx:id="colNoNota" prefWidth="111.5" text="No. Nota" />
+            <TableColumn fx:id="colPelanggan" prefWidth="374.5" text="Pelanggan" />
+            <TableColumn fx:id="colTotaltagihan" prefWidth="203.5" text="Total Tagihan" />
+            <TableColumn fx:id="colStatusCucian" prefWidth="186.0" text="Status Cucian" />
+            <TableColumn fx:id="colAksi" prefWidth="178.0" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

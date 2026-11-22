@@ -248,7 +248,7 @@ public class PenerimaanCucianLayananController implements Initializable, Sidebar
     @FXML
     void klikKembali(ActionEvent event) {
         if (mainLayoutController != null) {
-            mainLayoutController.loadPage("/com/kinclong/PenerimaanCucian.fxml");
+            mainLayoutController.loadPage("/com/kinclong/kasirContent/penerimaanCucian/PenerimaanCucian.fxml");
         }
     }
 
@@ -260,7 +260,7 @@ public class PenerimaanCucianLayananController implements Initializable, Sidebar
         }
 
         if (mainLayoutController != null) {
-            mainLayoutController.loadPage("/com/kinclong/KonfirmasiTransaksi.fxml");
+            mainLayoutController.loadPage("/com/kinclong//com/kinclong/kasirContent/penerimaanCucian/KonfirmasiTransaksi.fxml");
         }
     }
 
