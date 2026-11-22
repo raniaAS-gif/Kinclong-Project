@@ -15,7 +15,6 @@ public class Kasir extends Karyawan {
         return "/com/kinclong/dashboardKasir.fxml";
     }
 
-    // Validasi aturan baru: pembayaran hanya bisa dilakukan jika cucian sudah 'SUDAH'
     public boolean validasiProsesPembayaran(Transaksi transaksi) {
         return transaksi != null && "SUDAH".equalsIgnoreCase(transaksi.getStatusCucian());
     }

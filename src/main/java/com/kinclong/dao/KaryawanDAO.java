@@ -1,22 +1,17 @@
 package com.kinclong.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.kinclong.model.Admin;
 import com.kinclong.model.Karyawan;
 import com.kinclong.model.Kasir;
 import com.kinclong.util.DatabaseConnection;
 import com.kinclong.util.PasswordUtil;
 
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
 public class KaryawanDAO {
 
-    // 1. Autentikasi login + pengecekan status AKTIF/NONAKTIF
     public Karyawan login(String username, String plainPassword) throws Exception {
         String sql = "SELECT * FROM karyawan WHERE username = ?";
         try (Connection conn = DatabaseConnection.getConnection();
@@ -39,7 +34,6 @@ public class KaryawanDAO {
         return null;
     }
 
-    // 2. Mengambil seluruh data karyawan
     public List<Karyawan> getAll() {
         List<Karyawan> list = new ArrayList<>();
         String sql = "SELECT * FROM karyawan ORDER BY id_karyawan ASC";
@@ -55,7 +49,6 @@ public class KaryawanDAO {
         return list;
     }
 
-    // 3. Mencari karyawan berdasarkan nama, username, atau ID
     public List<Karyawan> cariKaryawan(String keyword) {
         List<Karyawan> list = new ArrayList<>();
         String sql = "SELECT * FROM karyawan WHERE nama_karyawan LIKE ? OR username LIKE ? OR CAST(id_karyawan AS CHAR) LIKE ? ORDER BY id_karyawan ASC";
@@ -76,7 +69,6 @@ public class KaryawanDAO {
         return list;
     }
 
-    // 4. Tambah pegawai baru (default status AKTIF)
     public boolean insert(Karyawan k, String plainPassword) {
         String sql = "INSERT INTO karyawan (nama_karyawan, nomor_telepon, jabatan, username, password, status) VALUES (?, ?, ?, ?, ?, 'AKTIF')";
         try (Connection conn = DatabaseConnection.getConnection();
@@ -93,7 +85,6 @@ public class KaryawanDAO {
         }
     }
 
-    // 5. Update data pegawai tanpa mengubah password
     public boolean update(Karyawan k) {
         String sql = "UPDATE karyawan SET nama_karyawan = ?, nomor_telepon = ?, jabatan = ?, username = ? WHERE id_karyawan = ?";
         try (Connection conn = DatabaseConnection.getConnection();
@@ -110,7 +101,6 @@ public class KaryawanDAO {
         }
     }
 
-    // 6. Update data pegawai sekaligus reset password baru
     public boolean update(Karyawan k, String plainPasswordBaru) {
         String sql = "UPDATE karyawan SET nama_karyawan = ?, nomor_telepon = ?, jabatan = ?, username = ?, password = ? WHERE id_karyawan = ?";
         try (Connection conn = DatabaseConnection.getConnection();
@@ -128,7 +118,6 @@ public class KaryawanDAO {
         }
     }
 
-    // 7. Metode A: Ubah status pegawai secara eksplisit ("AKTIF" atau "NONAKTIF")
     public boolean ubahStatusPegawai(int idKaryawan, String status) {
         if (!"AKTIF".equalsIgnoreCase(status) && !"NONAKTIF".equalsIgnoreCase(status)) {
             throw new IllegalArgumentException("Status harus bernilai AKTIF atau NONAKTIF");
@@ -144,18 +133,6 @@ public class KaryawanDAO {
             e.printStackTrace();
             return false;
         }
-    }
-
-    public int getTotalKasirAktif() {
-        String sql = "SELECT COUNT(*) FROM karyawan WHERE jabatan = 'KASIR' AND status = 'AKTIF'";
-        try (Connection conn = DatabaseConnection.getConnection();
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery(sql)) {
-            if (rs.next()) return rs.getInt(1);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return 0;
     }
 
     private Karyawan mapRow(ResultSet rs) throws SQLException {

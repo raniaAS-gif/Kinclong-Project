@@ -2,7 +2,7 @@ package com.kinclong.model;
 
 public class DetailTransaksi {
     private int nomorUrut;
-    private double jumlah; // Mendukung berat koma (misal 2.5 kg)
+    private double jumlah;
     private double totalHarga;
     private String keterangan;
     private Layanan layanan;
