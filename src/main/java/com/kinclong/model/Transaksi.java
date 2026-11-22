@@ -9,9 +9,8 @@ public class Transaksi {
     private LocalDate tanggalMasuk;
     private LocalDate tanggalTransaksi;
     private double totalBayar;
-    private String statusCucian; // "BELUM", "DALAM_PROSES", "SUDAH"
+    private String statusCucian;
 
-    // Relasi objek sesuai Class Diagram
     private Pelanggan pelanggan;
     private Kasir kasir;
     private Pembayaran pembayaran;
@@ -22,7 +21,6 @@ public class Transaksi {
         this.statusCucian = "BELUM";
     }
 
-    // Method-method sesuai Class Diagram
     public void setTanggalOtomatis() {
         LocalDate hariIni = LocalDate.now();
         this.tanggalMasuk = hariIni;
@@ -51,7 +49,10 @@ public class Transaksi {
                 .sum();
     }
 
-    // Getter & Setter sesuai Class Diagram
+    public boolean isLunas() {
+        return this.pembayaran != null;
+    }
+
     public int getIdTransaksi() { return idTransaksi; }
     public void setIdTransaksi(int idTransaksi) { this.idTransaksi = idTransaksi; }
 
@@ -79,12 +80,15 @@ public class Transaksi {
     public List<DetailTransaksi> getListDetail() { return listDetail; }
     public void setListDetail(List<DetailTransaksi> listDetail) { this.listDetail = listDetail; }
 
-    // Helper getter agar kolom TableView JavaFX langsung terbaca
     public String getNamaPelanggan() {
         return pelanggan != null ? pelanggan.getNama() : "";
     }
 
     public String getNomorTeleponPelanggan() {
         return pelanggan != null ? pelanggan.getNomorTelepon() : "";
+    }
+
+    public String getStatusPembayaranText() {
+        return isLunas() ? "LUNAS" : "BELUM LUNAS";
     }
 }
