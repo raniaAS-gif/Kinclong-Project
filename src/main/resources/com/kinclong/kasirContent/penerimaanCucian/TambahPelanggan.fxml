@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="804.0" style="-fx-background-color: #fafcfe; -fx-background-radius: 10; -fx-border-color: #5B96D3; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="804.0" style="-fx-background-color: #fafcfe; -fx-background-radius: 10; -fx-border-color: #5B96D3; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kinclong.controller.kasirContent.penerimaanCucian.TambahPelangganController">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
@@ -28,7 +27,7 @@
                   <Font name="Inter 24pt SemiBold" size="20.0" />
                </font>
             </Label>
-            <TextField prefHeight="60.0" style="-fx-background-color: transparent; -fx-border-color: #5B96D3; -fx-border-radius: 10;" />
+            <TextField fx:id="textNamaPelanggan" prefHeight="60.0" style="-fx-background-color: transparent; -fx-border-color: #5B96D3; -fx-border-radius: 10;" />
          </children>
       </VBox>
       <Region prefHeight="20.0" />
@@ -39,7 +38,7 @@
                   <Font name="Inter 24pt SemiBold" size="20.0" />
                </font>
             </Label>
-            <TextField prefHeight="60.0" style="-fx-background-color: transparent; -fx-border-color: #5B96D3; -fx-border-radius: 10;" />
+            <TextField fx:id="textTelepon" prefHeight="60.0" style="-fx-background-color: transparent; -fx-border-color: #5B96D3; -fx-border-radius: 10;" />
          </children>
       </VBox>
       <Region prefHeight="20.0" />
@@ -50,19 +49,19 @@
                   <Font name="Inter 24pt SemiBold" size="20.0" />
                </font>
             </Label>
-            <TextField prefHeight="60.0" style="-fx-background-color: transparent; -fx-border-color: #5B96D3; -fx-border-radius: 10;" />
+            <TextField fx:id="textAlamat" prefHeight="60.0" style="-fx-background-color: transparent; -fx-border-color: #5B96D3; -fx-border-radius: 10;" />
          </children>
       </VBox>
       <Region prefHeight="30.0" />
       <HBox alignment="CENTER">
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" prefWidth="150.0" style="-fx-background-color: #5b96d3; -fx-background-radius: 100;" text="Batalkan" textFill="#fafcfe">
+            <Button fx:id="btnBatalkan" alignment="CENTER" mnemonicParsing="false" onAction="#klikBatalkan" prefWidth="150.0" style="-fx-background-color: #5b96d3; -fx-background-radius: 100;" text="Batalkan" textFill="#fafcfe">
                <font>
                   <Font name="Plus Jakarta Sans SemiBold" size="20.0" />
                </font>
             </Button>
             <Region prefWidth="10.0" />
-            <Button alignment="CENTER" mnemonicParsing="false" prefWidth="150.0" style="-fx-background-color: #5b96d3; -fx-background-radius: 100;" text="Lanjut" textFill="#fafcfe">
+            <Button fx:id="btnLanjut" alignment="CENTER" mnemonicParsing="false" onAction="#klikLanjut" prefWidth="150.0" style="-fx-background-color: #5b96d3; -fx-background-radius: 100;" text="Lanjut" textFill="#fafcfe">
                <font>
                   <Font name="Plus Jakarta Sans SemiBold" size="20.0" />
                </font>

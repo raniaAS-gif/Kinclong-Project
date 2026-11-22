@@ -29,7 +29,7 @@
       </Label>
       <VBox />
       <Region prefHeight="30.0" />
-      <TabPane stylesheets="@../../styleTabPane.css" tabClosingPolicy="UNAVAILABLE">
+      <TabPane stylesheets="@../../../css/styleTabPane.css" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Paket Layanan">
                <content>
@@ -182,7 +182,7 @@
                                              <graphic>
                                                 <ImageView fitHeight="30.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../../assets/icons8-search-90%20(1).png" />
+                                                      <Image url="@../../../assets/icons8-search-90%20(1).png" />
                                                    </image>
                                                 </ImageView>
                                              </graphic>
@@ -190,7 +190,7 @@
                                        </children>
                                     </HBox>
                                     <Region maxHeight="20.0" minHeight="20.0" prefHeight="20.0" />
-                                    <TableView prefWidth="594.0" style="-fx-border-radius: 10;">
+                                    <TableView prefWidth="594.0" style="-fx-border-radius: 10;" stylesheets="@../../../css/styleTabel.css">
                                       <columns>
                                         <TableColumn prefWidth="104.0" text="ID" />
                                         <TableColumn prefWidth="267.0" text="Nama Layanan" />
@@ -389,7 +389,7 @@
                                              <graphic>
                                                 <ImageView fitHeight="30.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../../assets/icons8-search-90%20(1).png" />
+                                                      <Image url="@../../../assets/icons8-search-90%20(1).png" />
                                                    </image>
                                                 </ImageView>
                                              </graphic>
@@ -397,7 +397,7 @@
                                        </children>
                                     </HBox>
                                     <Region maxHeight="20.0" minHeight="20.0" prefHeight="20.0" />
-                                    <TableView prefWidth="594.0" style="-fx-border-radius: 10;">
+                                    <TableView prefWidth="594.0" style="-fx-border-radius: 10;" stylesheets="@../../../css/styleTabel.css">
                                        <columns>
                                           <TableColumn prefWidth="97.5" text="ID" />
                                           <TableColumn prefWidth="183.5" text="Nama" />

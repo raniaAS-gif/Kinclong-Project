@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxWidth="1152.0" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #EEF6FC;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxWidth="1152.0" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1152.0" style="-fx-background-color: #EEF6FC;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kinclong.controller.kasirContent.UpdateStatusController">
    <padding>
       <Insets bottom="30.0" left="32.0" right="32.0" top="30.0" />
    </padding>
@@ -38,7 +38,7 @@
                      <children>
                         <ImageView fitHeight="79.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/icons8-test-passed-100.png" />
+                              <Image url="@../../../assets/icons8-test-passed-100.png" />
                            </image>
                         </ImageView>
                         <VBox alignment="CENTER_LEFT">
@@ -48,7 +48,7 @@
                                     <Font name="Inter 24pt Regular" size="20.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="countSudah" text="0" textFill="#5b96d3">
+                              <Label fx:id="labelCountSudah" text="0" textFill="#5b96d3">
                                  <font>
                                     <Font name="Inter 24pt ExtraBold" size="45.0" />
                                  </font>
@@ -75,7 +75,7 @@
                      <children>
                         <ImageView fitHeight="79.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/icons8-washing-100.png" />
+                              <Image url="@../../../assets/icons8-washing-100.png" />
                            </image>
                         </ImageView>
                         <VBox alignment="CENTER_LEFT">
@@ -85,7 +85,7 @@
                                     <Font name="Inter 24pt Regular" size="20.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="countDalamProses" text="0" textFill="#5b96d3">
+                              <Label fx:id="labelCountProses" text="0" textFill="#5b96d3">
                                  <font>
                                     <Font name="Inter 24pt ExtraBold" size="45.0" />
                                  </font>
@@ -112,7 +112,7 @@
                      <children>
                         <ImageView fitHeight="79.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/icons8-scorecard-100.png" />
+                              <Image url="@../../../assets/icons8-scorecard-100.png" />
                            </image>
                         </ImageView>
                         <VBox alignment="CENTER_LEFT">
@@ -122,7 +122,7 @@
                                     <Font name="Inter 24pt Regular" size="20.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="countBelum" text="0" textFill="#5b96d3">
+                              <Label fx:id="labelCountBelum" text="0" textFill="#5b96d3">
                                  <font>
                                     <Font name="Inter 24pt ExtraBold" size="45.0" />
                                  </font>
@@ -146,7 +146,7 @@
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #FAFCFE; -fx-background-radius: 100; -fx-border-color: #D5E5F3; -fx-border-width: 1; -fx-border-radius: 100;">
                <children>
-                  <TextField fx:id="searchBarUpdate" onAction="#handleSearch" prefHeight="50.0" prefWidth="722.0" promptText="Cari No. Nota / Nama Pelanggan" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="searchBarUpdate" onKeyReleased="#filteredData" prefHeight="50.0" prefWidth="722.0" promptText="Cari No. Nota / Nama Pelanggan" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
                      <font>
                         <Font name="Inter 24pt Regular" size="15.0" />
                      </font>
@@ -158,7 +158,7 @@
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/icons8-search-90%20(1).png" />
+                              <Image url="@../../../assets/icons8-search-90%20(1).png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -184,12 +184,12 @@
          </children>
       </HBox>
       <Region prefHeight="30.0" />
-      <TableView fx:id="tableUpdateStatus" prefHeight="420.0" style="-fx-background-color: #FAFCFE; -fx-background-radius: 10; -fx-border-color: #5B96D3; -fx-border-radius: 10;" stylesheets="@../../styleTabel.css">
+      <TableView fx:id="tableUpdateStatus" prefHeight="420.0" style="-fx-background-color: #FAFCFE; -fx-background-radius: 10; -fx-border-color: #5B96D3; -fx-border-radius: 10;" stylesheets="@../../../css/styleTabel.css">
          <columns>
-            <TableColumn fx:id="coloumTransaksi" prefWidth="153.0" text="No. Nota" />
-            <TableColumn fx:id="coloumPelanggan" prefWidth="241.5" text="Pelanggan" />
-            <TableColumn fx:id="coloumLayanan" prefWidth="345.5" text="Detail Layanan" />
-            <TableColumn fx:id="coloumPelanggan1" prefWidth="173.5" text="Pembayaran" />
+            <TableColumn fx:id="coloumNota" prefWidth="120.0" text="No. Nota" />
+            <TableColumn fx:id="coloumPelanggan" prefWidth="188.5" text="Pelanggan" />
+            <TableColumn fx:id="coloumLayanan" prefWidth="283.5" text="Detail Layanan" />
+            <TableColumn fx:id="coloumKeterangan" prefWidth="203.0" text="Keterangan" />
             <TableColumn fx:id="statusSaatIni" prefWidth="171.5" text="Status Cucian" />
          </columns>
          <columnResizePolicy>

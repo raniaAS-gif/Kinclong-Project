@@ -1,11 +1,16 @@
 package com.kinclong.dao;
 
-import com.kinclong.model.Pelanggan;
-import com.kinclong.util.DatabaseConnection;
-
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.kinclong.model.Pelanggan;
+import com.kinclong.util.DatabaseConnection;
 
 public class PelangganDAO {
 
@@ -77,6 +82,26 @@ public class PelangganDAO {
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean delete(int idPelanggan) {
+        String sql = "DELETE FROM pelanggan WHERE id_pelanggan = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, idPelanggan);
+            return ps.executeUpdate() > 0;
+        } catch (SQLIntegrityConstraintViolationException e) {
+            // Terjadi jika id_pelanggan masih digunakan sebagai foreign key di tabel transaksi
+            System.err.println("Pelanggan ID " + idPelanggan + " gagal dihapus karena sudah memiliki riwayat transaksi.");
+            return false;
+        } catch (SQLException e) {
+            if ("23000".equals(e.getSQLState())) {
+                System.err.println("Pelanggan ID " + idPelanggan + " gagal dihapus karena sudah memiliki riwayat transaksi.");
+            } else {
+                e.printStackTrace();
+            }
             return false;
         }
     }

@@ -1,14 +1,18 @@
 package com.kinclong.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.kinclong.model.Admin;
 import com.kinclong.model.Karyawan;
 import com.kinclong.model.Kasir;
 import com.kinclong.util.DatabaseConnection;
 import com.kinclong.util.PasswordUtil;
-
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class KaryawanDAO {
 
@@ -140,6 +144,18 @@ public class KaryawanDAO {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public int getTotalKasirAktif() {
+        String sql = "SELECT COUNT(*) FROM karyawan WHERE jabatan = 'KASIR' AND status = 'AKTIF'";
+        try (Connection conn = DatabaseConnection.getConnection();
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql)) {
+            if (rs.next()) return rs.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     private Karyawan mapRow(ResultSet rs) throws SQLException {
