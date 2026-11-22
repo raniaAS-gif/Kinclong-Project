@@ -12,6 +12,7 @@ import java.util.List;
 
 public class KaryawanDAO {
 
+    // 1. Autentikasi login + pengecekan status AKTIF/NONAKTIF
     public Karyawan login(String username, String plainPassword) throws Exception {
         String sql = "SELECT * FROM karyawan WHERE username = ?";
         try (Connection conn = DatabaseConnection.getConnection();
@@ -34,6 +35,7 @@ public class KaryawanDAO {
         return null;
     }
 
+    // 2. Mengambil seluruh data karyawan
     public List<Karyawan> getAll() {
         List<Karyawan> list = new ArrayList<>();
         String sql = "SELECT * FROM karyawan ORDER BY id_karyawan ASC";
@@ -49,6 +51,28 @@ public class KaryawanDAO {
         return list;
     }
 
+    // 3. Mencari karyawan berdasarkan nama, username, atau ID
+    public List<Karyawan> cariKaryawan(String keyword) {
+        List<Karyawan> list = new ArrayList<>();
+        String sql = "SELECT * FROM karyawan WHERE nama_karyawan LIKE ? OR username LIKE ? OR CAST(id_karyawan AS CHAR) LIKE ? ORDER BY id_karyawan ASC";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            String pola = "%" + (keyword == null ? "" : keyword) + "%";
+            ps.setString(1, pola);
+            ps.setString(2, pola);
+            ps.setString(3, pola);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    list.add(mapRow(rs));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    // 4. Tambah pegawai baru (default status AKTIF)
     public boolean insert(Karyawan k, String plainPassword) {
         String sql = "INSERT INTO karyawan (nama_karyawan, nomor_telepon, jabatan, username, password, status) VALUES (?, ?, ?, ?, ?, 'AKTIF')";
         try (Connection conn = DatabaseConnection.getConnection();
@@ -65,11 +89,51 @@ public class KaryawanDAO {
         }
     }
 
-    public boolean updateStatus(int idKaryawan, String statusBaru) {
+    // 5. Update data pegawai tanpa mengubah password
+    public boolean update(Karyawan k) {
+        String sql = "UPDATE karyawan SET nama_karyawan = ?, nomor_telepon = ?, jabatan = ?, username = ? WHERE id_karyawan = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, k.getNamaKaryawan());
+            ps.setString(2, k.getNomorTelepon());
+            ps.setString(3, k.getJabatan());
+            ps.setString(4, k.getUsername());
+            ps.setInt(5, k.getIdKaryawan());
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    // 6. Update data pegawai sekaligus reset password baru
+    public boolean update(Karyawan k, String plainPasswordBaru) {
+        String sql = "UPDATE karyawan SET nama_karyawan = ?, nomor_telepon = ?, jabatan = ?, username = ?, password = ? WHERE id_karyawan = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, k.getNamaKaryawan());
+            ps.setString(2, k.getNomorTelepon());
+            ps.setString(3, k.getJabatan());
+            ps.setString(4, k.getUsername());
+            ps.setString(5, PasswordUtil.hashSHA256(plainPasswordBaru));
+            ps.setInt(6, k.getIdKaryawan());
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    // 7. Metode A: Ubah status pegawai secara eksplisit ("AKTIF" atau "NONAKTIF")
+    public boolean ubahStatusPegawai(int idKaryawan, String status) {
+        if (!"AKTIF".equalsIgnoreCase(status) && !"NONAKTIF".equalsIgnoreCase(status)) {
+            throw new IllegalArgumentException("Status harus bernilai AKTIF atau NONAKTIF");
+        }
+
         String sql = "UPDATE karyawan SET status = ? WHERE id_karyawan = ?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, statusBaru);
+            ps.setString(1, status.toUpperCase());
             ps.setInt(2, idKaryawan);
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {

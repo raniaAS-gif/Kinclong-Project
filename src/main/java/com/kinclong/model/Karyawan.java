@@ -7,9 +7,11 @@ public abstract class Karyawan {
     private String jabatan;
     private String username;
     private String password;
-    private String status; // Tambahan revisi: "AKTIF" atau "NONAKTIF"
+    private String status;
 
-    public Karyawan() {}
+    public Karyawan() {
+        this.status = "AKTIF";
+    }
 
     public Karyawan(int idKaryawan, String namaKaryawan, String nomorTelepon,
                     String jabatan, String username, String password, String status) {
@@ -22,7 +24,6 @@ public abstract class Karyawan {
         this.status = status;
     }
 
-    // Method sesuai Class Diagram
     public boolean validasiKredensial(String inputUsername, String hashedPassword) {
         return this.username != null && this.username.equals(inputUsername)
                 && this.password != null && this.password.equals(hashedPassword);
