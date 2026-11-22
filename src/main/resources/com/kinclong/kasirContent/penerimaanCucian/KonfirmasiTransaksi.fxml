@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxWidth="1152.0" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1152.0" style="-fx-background-color: #EEF6FC;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+   <padding>
+      <Insets bottom="30.0" left="32.0" right="32.0" top="30.0" />
+   </padding>
+   <children>
+      <VBox>
+         <children>
+            <Label text="Konfirmasi Transaksi" textFill="#2f4a6b">
+               <font>
+                  <Font name="Plus Jakarta Sans ExtraBold" size="40.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Region prefHeight="30.0" />
+      <VBox style="-fx-background-color: #fafcfe; -fx-background-radius: 10; -fx-border-color: #D5E5F3; -fx-border-radius: 10;">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <Label text="Nota" textFill="#2f4a6b">
+                     <font>
+                        <Font name="Inter 24pt Medium" size="20.0" />
+                     </font>
+                     <padding>
+                        <Insets right="8.0" />
+                     </padding>
+                  </Label>
+                  <Label text="#32000" textFill="#2f4a6b">
+                     <font>
+                        <Font name="Inter 24pt Medium" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Region prefHeight="20.0" />
+            <VBox>
+               <children>
+                  <HBox prefHeight="25.0">
+                     <children>
+                        <Label prefWidth="120.0" text="Pelanggan" textFill="#a9b0b5">
+                           <font>
+                              <Font name="Inter 24pt Medium" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label text="Nama Pelanggan," textFill="#2f4a6b">
+                           <font>
+                              <Font name="Inter 24pt Medium" size="15.0" />
+                           </font>
+                        </Label>
+                        <Region prefWidth="10.0" />
+                        <Label text="telp" textFill="#2f4a6b">
+                           <font>
+                              <Font name="Inter 24pt Medium" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="25.0">
+                     <children>
+                        <Label prefWidth="120.0" text="Tanggal masuk" textFill="#a9b0b5">
+                           <font>
+                              <Font name="Inter 24pt Medium" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label text="20 Oktober 2025" textFill="#2f4a6b">
+                           <font>
+                              <Font name="Inter 24pt Medium" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="25.0">
+                     <children>
+                        <Label prefWidth="120.0" text="Status cucian" textFill="#a9b0b5">
+                           <font>
+                              <Font name="Inter 24pt Medium" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label text="Belum" textFill="#2f4a6b">
+                           <font>
+                              <Font name="Inter 24pt Medium" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="25.0">
+                     <children>
+                        <Label prefWidth="120.0" text="Kasir" textFill="#a9b0b5">
+                           <font>
+                              <Font name="Inter 24pt Medium" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label text="Nama Kasir" textFill="#2f4a6b">
+                           <font>
+                              <Font name="Inter 24pt Medium" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Region prefHeight="20.0" />
+            <TableView prefHeight="420.0" style="-fx-background-color: #FAFCFE; -fx-background-radius: 10; -fx-border-color: #5B96D3; -fx-border-radius: 10;" stylesheets="@../../styleTabel.css">
+               <columns>
+                  <TableColumn fx:id="coloumID11" prefWidth="61.5" text="No" />
+                  <TableColumn fx:id="coloumID1" prefWidth="620.0" text="Layanan Yang Dipilih" />
+                  <TableColumn fx:id="coloumNamaPelanggan1" prefWidth="134.5" text="Jumlah" />
+                  <TableColumn fx:id="coloumTelepon1" prefWidth="240.0" text="Subtotal Harga" />
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <Region prefHeight="20.0" />
+            <HBox>
+               <children>
+                  <Label text="Total tagihan" textFill="#2f4a6b">
+                     <font>
+                        <Font name="Inter 24pt Medium" size="20.0" />
+                     </font>
+                  </Label>
+                  <Region prefWidth="10.0" />
+                  <HBox alignment="CENTER_RIGHT" maxWidth="916.0" prefWidth="916.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label text="Rp" textFill="#2f4a6b">
+                           <font>
+                              <Font name="Inter 24pt Medium" size="20.0" />
+                           </font>
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                        </Label>
+                        <Label text="0" textFill="#2f4a6b">
+                           <font>
+                              <Font name="Inter 24pt Medium" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Region prefHeight="30.0" />
+      <HBox alignment="CENTER_LEFT">
+         <children>
+            <Button alignment="CENTER" mnemonicParsing="false" prefWidth="218.0" style="-fx-background-color: #5b96d3; -fx-background-radius: 100;" text="Kembali" textFill="#fafcfe">
+               <font>
+                  <Font name="Plus Jakarta Sans SemiBold" size="20.0" />
+               </font>
+            </Button>
+            <Region prefWidth="10.0" />
+            <Button alignment="CENTER" mnemonicParsing="false" prefWidth="218.0" style="-fx-background-color: #5b96d3; -fx-background-radius: 100;" text="Batal" textFill="#fafcfe">
+               <font>
+                  <Font name="Plus Jakarta Sans SemiBold" size="20.0" />
+               </font>
+            </Button>
+            <Region prefWidth="10.0" />
+            <Button alignment="CENTER" mnemonicParsing="false" prefWidth="632.0" style="-fx-background-color: #5b96d3; -fx-background-radius: 100;" text="Simpan Transaksi &amp; Cetak Nota" textFill="#fafcfe">
+               <font>
+                  <Font name="Plus Jakarta Sans SemiBold" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>

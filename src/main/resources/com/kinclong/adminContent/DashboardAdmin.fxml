@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxWidth="1152.0" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1152.0" style="-fx-background-color: #EEF6FC;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+   <padding>
+      <Insets bottom="30.0" left="32.0" right="32.0" top="30.0" />
+   </padding>
+   <children>
+      <VBox>
+         <children>
+            <Label text="Dashboard Admin" textFill="#2f4a6b">
+               <font>
+                  <Font name="Plus Jakarta Sans ExtraBold" size="40.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Region prefHeight="30.0" />
+      <HBox alignment="CENTER" prefWidth="1088.0">
+         <children>
+            <VBox alignment="CENTER_LEFT" prefHeight="136.0" prefWidth="264.5" style="-fx-background-color: #FAFCFE; -fx-background-radius: 20; -fx-border-color: #D5E5F3; -fx-border-width: 1; -fx-border-radius: 20;">
+               <children>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <Label text="Total Pelanggan" textFill="#5b96d3">
+                           <font>
+                              <Font name="Inter 24pt Regular" size="13.0" />
+                           </font>
+                        </Label>
+                        <Region prefHeight="20.0" prefWidth="115.0" />
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../assets/icons8-people-96.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <Label fx:id="countSudah" text="0" textFill="#5b96d3">
+                     <font>
+                        <Font name="Inter 24pt ExtraBold" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+            <Region prefWidth="10.0" />
+            <VBox alignment="CENTER_LEFT" prefHeight="136.0" prefWidth="264.5" style="-fx-background-color: #FAFCFE; -fx-background-radius: 20; -fx-border-color: #D5E5F3; -fx-border-width: 1; -fx-border-radius: 20;">
+               <children>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <Label text="Jenis Layanan" textFill="#5b96d3">
+                           <font>
+                              <Font name="Inter 24pt Regular" size="13.0" />
+                           </font>
+                        </Label>
+                        <Region prefHeight="20.0" prefWidth="126.0" />
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../assets/cucian%20siap.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <Label fx:id="countSudah1" text="0" textFill="#5b96d3">
+                     <font>
+                        <Font name="Inter 24pt ExtraBold" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+               </padding>
+            </VBox>
+            <Region prefWidth="10.0" />
+            <VBox alignment="CENTER_LEFT" prefHeight="136.0" prefWidth="264.5" style="-fx-background-color: #FAFCFE; -fx-background-radius: 20; -fx-border-color: #D5E5F3; -fx-border-width: 1; -fx-border-radius: 20;">
+               <children>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <Label text="Kasir Aktif" textFill="#5b96d3">
+                           <font>
+                              <Font name="Inter 24pt Regular" size="13.0" />
+                           </font>
+                        </Label>
+                        <Region prefHeight="20.0" prefWidth="150.5" />
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../assets/icons8-person-90%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <Label fx:id="countSudah11" text="0" textFill="#5b96d3">
+                     <font>
+                        <Font name="Inter 24pt ExtraBold" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+               </padding>
+            </VBox>
+            <Region prefWidth="10.0" />
+            <VBox alignment="CENTER_LEFT" prefHeight="136.0" prefWidth="264.5" style="-fx-background-color: #FAFCFE; -fx-background-radius: 20; -fx-border-color: #D5E5F3; -fx-border-width: 1; -fx-border-radius: 20;">
+               <children>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <Label text="Omzet Bulan Ini" textFill="#5b96d3">
+                           <font>
+                              <Font name="Inter 24pt Regular" size="13.0" />
+                           </font>
+                        </Label>
+                        <Region prefHeight="20.0" prefWidth="118.0" />
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../assets/icons8-wallet-52.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label fx:id="countSudah1111" text="Rp." textFill="#5b96d3">
+                           <font>
+                              <Font name="Inter 24pt ExtraBold" size="30.0" />
+                           </font>
+                           <padding>
+                              <Insets right="5.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="countSudah111" text="0" textFill="#5b96d3">
+                           <font>
+                              <Font name="Inter 24pt ExtraBold" size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+      <Region prefHeight="30.0" />
+      <HBox>
+         <children>
+            <VBox prefHeight="240.0" prefWidth="408.0" style="-fx-background-color: #fafcfe; -fx-background-radius: 10; -fx-border-color: #D5E5F3; -fx-border-radius: 10;">
+               <padding>
+                  <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+               </padding>
+               <children>
+                  <Label text="Pendapatan 7 hari terakhir" textFill="#2f4a6b">
+                     <font>
+                        <Font name="Inter 24pt SemiBold" size="14.0" />
+                     </font>
+                  </Label>
+                  <BarChart>
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+               </children>
+            </VBox>
+            <Region prefWidth="44.0" />
+            <VBox prefHeight="240.0" prefWidth="296.0" style="-fx-background-color: #fafcfe; -fx-background-radius: 10; -fx-border-color: #D5E5F3; -fx-border-radius: 10;">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <children>
+                  <Label text="Layanan Terlaris" textFill="#2f4a6b">
+                     <font>
+                        <Font name="Inter 24pt SemiBold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Region prefHeight="16.0" />
+                  <VBox>
+                     <children>
+                        <HBox>
+                           <children>
+                              <Label text="Nama Layanan" textFill="#2f4a6b">
+                                 <font>
+                                    <Font name="Inter 24pt Regular" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label alignment="CENTER_RIGHT" maxWidth="274.0" prefWidth="193.0" text="0%" textFill="#2f4a6b" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="Inter 24pt Regular" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <ProgressBar prefHeight="18.0" prefWidth="274.0" progress="0.0" />
+               </children>
+            </VBox>
+            <Region prefWidth="44.0" />
+            <VBox prefHeight="240.0" prefWidth="296.0" style="-fx-background-color: #fafcfe; -fx-background-radius: 10; -fx-border-color: #D5E5F3; -fx-border-radius: 10;">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <children>
+                  <Label text="Aksi Cepat" textFill="#2f4a6b">
+                     <font>
+                        <Font name="Inter 24pt SemiBold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Region prefHeight="16.0" />
+                  <VBox />
+                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="274.0" style="-fx-background-color: #185FA5; -fx-background-radius: 10;" text="+ Tambah Karyawan" textFill="#fafcfe">
+                     <font>
+                        <Font name="Inter 24pt SemiBold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Region prefHeight="10.0" />
+                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="274.0" style="-fx-background-color: #185FA5; -fx-background-radius: 10;" text="+ Tambah Layanan" textFill="#fafcfe">
+                     <font>
+                        <Font name="Inter 24pt SemiBold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Region prefHeight="10.0" />
+                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="274.0" style="-fx-background-color: #185FA5; -fx-background-radius: 10;" text="Lihat Laporan Keuangan" textFill="#fafcfe">
+                     <font>
+                        <Font name="Inter 24pt SemiBold" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>
