@@ -12,9 +12,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
-public class SidebarKasirController implements Initializable, SidebarSwitching {
+public class sidebarKasirController implements Initializable, SidebarSwitching {
 
-    private MainLayoutController mainLayoutController;
+    private mainLayoutController mainLayoutController;
 
     @FXML
     private ImageView iconDashboardKasir;

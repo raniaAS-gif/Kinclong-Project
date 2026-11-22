@@ -2,6 +2,7 @@ package com.kinclong.controller;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
+import com.kinclong.App;
 
 public class SecondaryController {
 

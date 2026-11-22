@@ -14,7 +14,7 @@ import javafx.scene.paint.Color;
 
 public class SidebarAdminController implements Initializable, SidebarSwitching {
 
-    private MainLayoutController mainLayoutController;
+    private mainLayoutController mainLayoutController;
 
     @FXML
     private ImageView iconDashboardAdmin;
