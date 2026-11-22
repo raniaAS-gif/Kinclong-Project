@@ -51,6 +51,11 @@ public class Transaksi {
                 .sum();
     }
 
+    // Pengecekan status lunas berdasarkan relasi objek Pembayaran (1 ke 0..1)
+    public boolean isLunas() {
+        return this.pembayaran != null;
+    }
+
     // Getter & Setter sesuai Class Diagram
     public int getIdTransaksi() { return idTransaksi; }
     public void setIdTransaksi(int idTransaksi) { this.idTransaksi = idTransaksi; }
@@ -86,5 +91,9 @@ public class Transaksi {
 
     public String getNomorTeleponPelanggan() {
         return pelanggan != null ? pelanggan.getNomorTelepon() : "";
+    }
+
+    public String getStatusPembayaranText() {
+        return isLunas() ? "LUNAS" : "BELUM LUNAS";
     }
 }
