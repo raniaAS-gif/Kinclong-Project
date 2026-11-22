@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -17,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxWidth="1152.0" prefWidth="1152.0" style="-fx-background-color: #EEF6FC;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxWidth="1152.0" prefWidth="1152.0" style="-fx-background-color: #EEF6FC;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kinclong.controller.adminContent.KelolaMasterDataController">
    <padding>
       <Insets bottom="30.0" left="32.0" right="32.0" top="30.0" />
    </padding>
@@ -29,9 +30,9 @@
       </Label>
       <VBox />
       <Region prefHeight="30.0" />
-      <TabPane stylesheets="@../../../css/styleTabPane.css" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="tabPaneMasterData" stylesheets="@../../../css/styleTabPane.css" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Paket Layanan">
+          <Tab fx:id="tabPaketLayanan" text="Paket Layanan">
                <content>
                   <VBox>
                      <children>
@@ -53,7 +54,7 @@
                                                 <Font name="Plus Jakarta Sans ExtraBold" size="20.0" />
                                              </font>
                                           </Label>
-                                          <TextField maxHeight="57.0" minHeight="57.0" prefHeight="57.0" style="-fx-background-color: #D9D9D9; -fx-background-radius: 8; -fx-border-color: #2f4a6b; -fx-border-radius: 8;" text="L000">
+                                          <TextField fx:id="txtIdLayanan" editable="false" maxHeight="57.0" minHeight="57.0" prefHeight="57.0" style="-fx-background-color: #D9D9D9; -fx-background-radius: 8; -fx-border-color: #2f4a6b; -fx-border-radius: 8;" text="L000">
                                              <font>
                                                 <Font name="Plus Jakarta Sans Regular" size="20.0" />
                                              </font>
@@ -73,7 +74,7 @@
                                                 <Font name="Plus Jakarta Sans ExtraBold" size="20.0" />
                                              </font>
                                           </Label>
-                                          <TextField maxHeight="57.0" minHeight="57.0" prefHeight="57.0" promptText="Masukkan nama layanan" style="-fx-background-color: transparent; -fx-background-radius: 8; -fx-border-color: #2f4a6b; -fx-border-radius: 8;">
+                                          <TextField fx:id="txtNamaLayanan" maxHeight="57.0" minHeight="57.0" prefHeight="57.0" promptText="Masukkan nama layanan" style="-fx-background-color: transparent; -fx-background-radius: 8; -fx-border-color: #2f4a6b; -fx-border-radius: 8;">
                                              <font>
                                                 <Font name="Plus Jakarta Sans Regular" size="20.0" />
                                              </font>
@@ -88,7 +89,7 @@
                                                 <Font name="Plus Jakarta Sans ExtraBold" size="20.0" />
                                              </font>
                                           </Label>
-                                          <TextField maxHeight="57.0" minHeight="57.0" prefHeight="57.0" promptText="Masukkan jenis satuan" style="-fx-background-color: transparent; -fx-background-radius: 8; -fx-border-color: #2f4a6b; -fx-border-radius: 8;">
+                                          <TextField fx:id="txtJenisSatuan" maxHeight="57.0" minHeight="57.0" prefHeight="57.0" promptText="Masukkan jenis satuan" style="-fx-background-color: transparent; -fx-background-radius: 8; -fx-border-color: #2f4a6b; -fx-border-radius: 8;">
                                              <font>
                                                 <Font name="Plus Jakarta Sans Regular" size="20.0" />
                                              </font>
@@ -110,7 +111,7 @@
                                                       <Font name="Plus Jakarta Sans Light" size="20.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField maxHeight="57.0" minHeight="57.0" prefHeight="57.0" prefWidth="330.0" promptText="Masukkan harga per unit" style="-fx-background-color: transparent;">
+                                                <TextField fx:id="txtHargaPerUnit" maxHeight="57.0" minHeight="57.0" prefHeight="57.0" prefWidth="330.0" promptText="Masukkan harga per unit" style="-fx-background-color: transparent;">
                                                    <font>
                                                       <Font name="Plus Jakarta Sans Regular" size="20.0" />
                                                    </font>
@@ -125,13 +126,13 @@
                                     <Region maxHeight="20.0" minHeight="20.0" prefHeight="20.0" />
                                     <HBox>
                                        <children>
-                                          <Button minHeight="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="180.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 10;" text="Simpan" textFill="#fafcfe">
+                                          <Button fx:id="btnSimpan" minHeight="60.0" mnemonicParsing="false" onAction="#handleSimpanLayanan" prefHeight="60.0" prefWidth="180.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 10;" text="Simpan" textFill="#fafcfe">
                                              <font>
                                                 <Font name="Plus Jakarta Sans SemiBold" size="20.0" />
                                              </font>
                                           </Button>
                                           <Region prefWidth="15.0" />
-                                          <Button minHeight="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="180.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 10;" text="Update" textFill="#fafcfe">
+                                          <Button fx:id="btnUpdate" minHeight="60.0" mnemonicParsing="false" onAction="#handleUpdateLayanan" prefHeight="60.0" prefWidth="180.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 10;" text="Update" textFill="#fafcfe">
                                              <font>
                                                 <Font name="Plus Jakarta Sans SemiBold" size="20.0" />
                                              </font>
@@ -141,13 +142,13 @@
                                     <Region maxHeight="20.0" minHeight="20.0" prefHeight="20.0" />
                                     <HBox>
                                        <children>
-                                          <Button minHeight="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="180.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 10;" text="Hapus" textFill="#fafcfe">
+                                          <Button fx:id="btnHapus" minHeight="60.0" mnemonicParsing="false" onAction="#handleHapusLayanan" prefHeight="60.0" prefWidth="180.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 10;" text="Hapus" textFill="#fafcfe">
                                              <font>
                                                 <Font name="Plus Jakarta Sans SemiBold" size="20.0" />
                                              </font>
                                           </Button>
                                           <Region prefWidth="15.0" />
-                                          <Button minHeight="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="180.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 10;" text="Bersihkan" textFill="#fafcfe">
+                                          <Button fx:id="btnBersihkan" minHeight="60.0" mnemonicParsing="false" onAction="#handleBersihkanLayanan" prefHeight="60.0" prefWidth="180.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 10;" text="Bersihkan" textFill="#fafcfe">
                                              <font>
                                                 <Font name="Plus Jakarta Sans SemiBold" size="20.0" />
                                              </font>
@@ -160,7 +161,7 @@
                                  </padding>
                               </VBox>
                               <Region prefWidth="39.0" />
-                              <VBox prefWidth="634.0" style="-fx-background-color: #fafcfe; -fx-background-radius: 25;" stylesheets="@../../styleTabel.css" HBox.hgrow="ALWAYS">
+                              <VBox prefWidth="634.0" style="-fx-background-color: #fafcfe; -fx-background-radius: 25;" HBox.hgrow="ALWAYS">
                                  <children>
                                     <Label text="Daftar Paket Layanan" textFill="#2f4a6b">
                                        <font>
@@ -170,7 +171,7 @@
                                     <Region maxHeight="20.0" minHeight="20.0" prefHeight="20.0" />
                                     <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="594.0" style="-fx-background-color: #FAFCFE; -fx-background-radius: 100; -fx-border-color: #D5E5F3; -fx-border-width: 1; -fx-border-radius: 100;">
                                        <children>
-                                          <TextField fx:id="searchBarUpdate" onAction="#handleSearch" prefHeight="50.0" prefWidth="516.0" promptText="Cari Nama Layanan" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
+                                          <TextField fx:id="txtCariLayanan" onKeyReleased="#handleCariLayanan" prefHeight="50.0" prefWidth="516.0" promptText="Cari Nama Layanan" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
                                              <font>
                                                 <Font name="Inter 24pt Regular" size="15.0" />
                                              </font>
@@ -178,7 +179,7 @@
                                                 <Insets />
                                              </opaqueInsets>
                                           </TextField>
-                                          <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#handleSearch" prefHeight="50.0" prefWidth="78.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 1000;">
+                                          <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#handleCariLayanan" prefHeight="50.0" prefWidth="78.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 1000;">
                                              <graphic>
                                                 <ImageView fitHeight="30.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -190,12 +191,12 @@
                                        </children>
                                     </HBox>
                                     <Region maxHeight="20.0" minHeight="20.0" prefHeight="20.0" />
-                                    <TableView prefWidth="594.0" style="-fx-border-radius: 10;" stylesheets="@../../../css/styleTabel.css">
+                                    <TableView fx:id="tblLayanan" onMouseClicked="#handlePilihBarisLayanan" prefWidth="594.0" style="-fx-border-radius: 10;" stylesheets="@../../../css/styleTabel.css" VBox.vgrow="ALWAYS">
                                       <columns>
-                                        <TableColumn prefWidth="104.0" text="ID" />
-                                        <TableColumn prefWidth="267.0" text="Nama Layanan" />
-                                          <TableColumn prefWidth="83.5" text="Satuan" />
-                                          <TableColumn prefWidth="137.5" text="Harga / Unit" />
+                                        <TableColumn fx:id="colIdLayanan" prefWidth="104.0" text="ID" />
+                                        <TableColumn fx:id="colNamaLayanan" prefWidth="267.0" text="Nama Layanan" />
+                                          <TableColumn fx:id="colSatuanLayanan" prefWidth="83.5" text="Satuan" />
+                                          <TableColumn fx:id="colHargaLayanan" prefWidth="137.5" text="Harga / Unit" />
                                       </columns>
                                        <columnResizePolicy>
                                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -212,7 +213,7 @@
                   </VBox>
                </content>
             </Tab>
-          <Tab text="Data Karyawan">
+          <Tab fx:id="tabDataKaryawan" text="Data Karyawan">
                <content>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
@@ -234,7 +235,7 @@
                                                 <Font name="Plus Jakarta Sans ExtraBold" size="20.0" />
                                              </font>
                                           </Label>
-                                          <TextField maxHeight="57.0" minHeight="57.0" prefHeight="57.0" style="-fx-background-color: #D9D9D9; -fx-background-radius: 8; -fx-border-color: #2f4a6b; -fx-border-radius: 8;" text="K000">
+                                          <TextField fx:id="txtIdKaryawan" editable="false" maxHeight="57.0" minHeight="57.0" prefHeight="57.0" style="-fx-background-color: #D9D9D9; -fx-background-radius: 8; -fx-border-color: #2f4a6b; -fx-border-radius: 8;" text="K000">
                                              <font>
                                                 <Font name="Plus Jakarta Sans Regular" size="20.0" />
                                              </font>
@@ -254,7 +255,7 @@
                                                 <Font name="Plus Jakarta Sans ExtraBold" size="20.0" />
                                              </font>
                                           </Label>
-                                          <TextField maxHeight="57.0" minHeight="57.0" prefHeight="57.0" promptText="Masukkan nama karyawan" style="-fx-background-color: transparent; -fx-background-radius: 8; -fx-border-color: #2f4a6b; -fx-border-radius: 8;">
+                                          <TextField fx:id="txtNamaKaryawan" maxHeight="57.0" minHeight="57.0" prefHeight="57.0" promptText="Masukkan nama karyawan" style="-fx-background-color: transparent; -fx-background-radius: 8; -fx-border-color: #2f4a6b; -fx-border-radius: 8;">
                                              <font>
                                                 <Font name="Plus Jakarta Sans Regular" size="20.0" />
                                              </font>
@@ -269,7 +270,7 @@
                                                 <Font name="Plus Jakarta Sans ExtraBold" size="20.0" />
                                              </font>
                                           </Label>
-                                          <TextField maxHeight="57.0" minHeight="57.0" prefHeight="57.0" promptText="Masukkan nomor telepon" style="-fx-background-color: transparent; -fx-background-radius: 8; -fx-border-color: #2f4a6b; -fx-border-radius: 8;">
+                                          <TextField fx:id="textNoTelpKaryawan" maxHeight="57.0" minHeight="57.0" prefHeight="57.0" promptText="Masukkan nomor telepon" style="-fx-background-color: transparent; -fx-background-radius: 8; -fx-border-color: #2f4a6b; -fx-border-radius: 8;">
                                              <font>
                                                 <Font name="Plus Jakarta Sans Regular" size="20.0" />
                                              </font>
@@ -286,10 +287,10 @@
                                           </Label>
                                           <VBox style="-fx-border-color: #2f4a6b; -fx-border-radius: 8;">
                                              <children>
-                                                <MenuButton mnemonicParsing="false" prefHeight="57.0" prefWidth="375.0" style="-fx-background-color: transparent;" text="Pilih Jabatan" textFill="#2f4a6b">
+                                                <MenuButton fx:id="nbJabatan" mnemonicParsing="false" prefHeight="57.0" prefWidth="375.0" style="-fx-background-color: transparent;" text="Pilih Jabatan" textFill="#2f4a6b">
                                                   <items>
-                                                    <MenuItem mnemonicParsing="false" text="Admin" />
-                                                    <MenuItem mnemonicParsing="false" text="Kasir" />
+                                                    <MenuItem fx:id="miAdmin" mnemonicParsing="false" onAction="#handlePilihJabatan" text="Admin" />
+                                                    <MenuItem fx:id="miKasir" mnemonicParsing="false" onAction="#handlePilihJabatan" text="Kasir" />
                                                   </items>
                                                    <font>
                                                       <Font name="Plus Jakarta Sans SemiBold" size="20.0" />
@@ -307,7 +308,7 @@
                                                 <Font name="Plus Jakarta Sans ExtraBold" size="20.0" />
                                              </font>
                                           </Label>
-                                          <TextField maxHeight="57.0" minHeight="57.0" prefHeight="57.0" promptText="Masukkan username" style="-fx-background-color: transparent; -fx-background-radius: 8; -fx-border-color: #2f4a6b; -fx-border-radius: 8;">
+                                          <TextField fx:id="txtUsername" maxHeight="57.0" minHeight="57.0" prefHeight="57.0" promptText="Masukkan username" style="-fx-background-color: transparent; -fx-background-radius: 8; -fx-border-color: #2f4a6b; -fx-border-radius: 8;">
                                              <font>
                                                 <Font name="Plus Jakarta Sans Regular" size="20.0" />
                                              </font>
@@ -322,23 +323,23 @@
                                                 <Font name="Plus Jakarta Sans ExtraBold" size="20.0" />
                                              </font>
                                           </Label>
-                                          <TextField maxHeight="57.0" minHeight="57.0" prefHeight="57.0" promptText="Masukkan password" style="-fx-background-color: transparent; -fx-background-radius: 8; -fx-border-color: #2f4a6b; -fx-border-radius: 8;">
+                                          <PasswordField fx:id="txtPassword" maxHeight="57.0" minHeight="57.0" prefHeight="57.0" promptText="Masukkan password" style="-fx-background-color: transparent; -fx-background-radius: 8; -fx-border-color: #2f4a6b; -fx-border-radius: 8;">
                                              <font>
                                                 <Font name="Plus Jakarta Sans Regular" size="20.0" />
                                              </font>
-                                          </TextField>
+                                          </PasswordField>
                                        </children>
                                     </VBox>
                                     <Region maxHeight="20.0" minHeight="20.0" prefHeight="20.0" />
                                     <HBox>
                                        <children>
-                                          <Button minHeight="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="180.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 10;" text="Simpan" textFill="#fafcfe">
+                                          <Button fx:id="btnSimpanKaryawan" minHeight="60.0" mnemonicParsing="false" onAction="#handleSimpanKaryawan" prefHeight="60.0" prefWidth="180.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 10;" text="Simpan" textFill="#fafcfe">
                                              <font>
                                                 <Font name="Plus Jakarta Sans SemiBold" size="20.0" />
                                              </font>
                                           </Button>
                                           <Region prefWidth="15.0" />
-                                          <Button minHeight="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="180.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 10;" text="Update" textFill="#fafcfe">
+                                          <Button fx:id="btnUpdateKaryawan" minHeight="60.0" mnemonicParsing="false" onAction="#handleUpdateKaryawan" prefHeight="60.0" prefWidth="180.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 10;" text="Update" textFill="#fafcfe">
                                              <font>
                                                 <Font name="Plus Jakarta Sans SemiBold" size="20.0" />
                                              </font>
@@ -348,13 +349,7 @@
                                     <Region maxHeight="20.0" minHeight="20.0" prefHeight="20.0" />
                                     <HBox>
                                        <children>
-                                          <Button minHeight="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="180.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 10;" text="Hapus" textFill="#fafcfe">
-                                             <font>
-                                                <Font name="Plus Jakarta Sans SemiBold" size="20.0" />
-                                             </font>
-                                          </Button>
-                                          <Region prefWidth="15.0" />
-                                          <Button minHeight="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="180.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 10;" text="Bersihkan" textFill="#fafcfe">
+                                          <Button fx:id="btnBersihkanKaryawan" minHeight="60.0" mnemonicParsing="false" onAction="#handleBersihkanKaryawan" prefHeight="60.0" prefWidth="375.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 10;" text="Bersihkan" textFill="#fafcfe">
                                              <font>
                                                 <Font name="Plus Jakarta Sans SemiBold" size="20.0" />
                                              </font>
@@ -367,7 +362,7 @@
                                  </padding>
                               </VBox>
                               <Region prefWidth="39.0" />
-                              <VBox prefWidth="634.0" style="-fx-background-color: #fafcfe; -fx-background-radius: 25;" stylesheets="@../../styleTabel.css" HBox.hgrow="ALWAYS">
+                              <VBox prefWidth="634.0" style="-fx-background-color: #fafcfe; -fx-background-radius: 25;" HBox.hgrow="ALWAYS">
                                  <children>
                                     <Label text="Daftar Karyawan" textFill="#2f4a6b">
                                        <font>
@@ -377,7 +372,7 @@
                                     <Region maxHeight="20.0" minHeight="20.0" prefHeight="20.0" />
                                     <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="594.0" style="-fx-background-color: #FAFCFE; -fx-background-radius: 100; -fx-border-color: #D5E5F3; -fx-border-width: 1; -fx-border-radius: 100;">
                                        <children>
-                                          <TextField fx:id="searchBarUpdate1" onAction="#handleSearch" prefHeight="50.0" prefWidth="516.0" promptText="Cari Nama Karyawan" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
+                                          <TextField fx:id="txtCariKaryawan" onKeyReleased="#handleCariKaryawan" prefHeight="50.0" prefWidth="516.0" promptText="Cari Nama Karyawan" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
                                              <font>
                                                 <Font name="Inter 24pt Regular" size="15.0" />
                                              </font>
@@ -385,7 +380,7 @@
                                                 <Insets />
                                              </opaqueInsets>
                                           </TextField>
-                                          <Button fx:id="btnSearch1" mnemonicParsing="false" onAction="#handleSearch" prefHeight="50.0" prefWidth="78.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 1000;">
+                                          <Button fx:id="btnSearchKaryawan" mnemonicParsing="false" onAction="#handleCariKaryawan" prefHeight="50.0" prefWidth="78.0" style="-fx-background-color: #5B96D3; -fx-background-radius: 1000;">
                                              <graphic>
                                                 <ImageView fitHeight="30.0" fitWidth="30.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -397,13 +392,13 @@
                                        </children>
                                     </HBox>
                                     <Region maxHeight="20.0" minHeight="20.0" prefHeight="20.0" />
-                                    <TableView prefWidth="594.0" style="-fx-border-radius: 10;" stylesheets="@../../../css/styleTabel.css">
+                                    <TableView fx:id="tblKaryawan" onMouseClicked="#handlePilihBarisKaryawan" prefWidth="594.0" style="-fx-border-radius: 10;" stylesheets="@../../../css/styleTabel.css" VBox.vgrow="ALWAYS">
                                        <columns>
-                                          <TableColumn prefWidth="97.5" text="ID" />
-                                          <TableColumn prefWidth="183.5" text="Nama" />
-                                          <TableColumn prefWidth="110.5" text="No. Telepon" />
-                                          <TableColumn prefWidth="94.5" text="Jabatan" />
-                                          <TableColumn prefWidth="105.0" text="Username" />
+                                          <TableColumn fx:id="colIdKaryawan" prefWidth="97.5" text="ID" />
+                                          <TableColumn fx:id="colNamaKaryawan" prefWidth="183.5" text="Nama" />
+                                          <TableColumn fx:id="colNoTelpKaryawan" prefWidth="110.5" text="No. Telepon" />
+                                          <TableColumn fx:id="colJabatanKaryawan" prefWidth="94.5" text="Jabatan" />
+                                          <TableColumn fx:id="colUSernameKaryawan" prefWidth="105.0" text="Username" />
                                        </columns>
                                        <columnResizePolicy>
                                           <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

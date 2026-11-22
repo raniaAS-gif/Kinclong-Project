@@ -135,6 +135,18 @@ public class KaryawanDAO {
         }
     }
 
+    public int getTotalKasirAktif() {
+        String sql = "SELECT COUNT(*) FROM karyawan WHERE jabatan = 'KASIR' AND status = 'AKTIF'";
+        try (Connection conn = DatabaseConnection.getConnection();
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql)) {
+            if (rs.next()) return rs.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
     private Karyawan mapRow(ResultSet rs) throws SQLException {
         String jabatan = rs.getString("jabatan");
         Karyawan k = "ADMIN".equalsIgnoreCase(jabatan) ? new Admin() : new Kasir();

@@ -148,21 +148,21 @@ public class PenerimaanCucianController implements Initializable, SidebarSwitchi
                 transaksi.setKasir(kasir);
             }
             mainLayoutController.setTransaksiAktif(transaksi);
-            mainLayoutController.loadPage("/com/kinclong/PenerimaanCucianLayanan.fxml");
+            mainLayoutController.loadPage("/com/kinclong/kasirContent/penerimaanCucian/PenerimaanCucianLayanan.fxml");
         }
     }
 
     @FXML
     void openEditPelanggan(ActionEvent event) {
         if (mainLayoutController != null) {
-            mainLayoutController.loadPage("/com/kinclong/EditPelanggan.fxml");
+            mainLayoutController.loadPage("/com/kinclong/kasirContent/penerimaanCucian/EditPelanggan.fxml");
         }
     }
 
     @FXML
     void openPopupTambah(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/kinclong/TambahPelanggan.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/kinclong/kasirContent/penerimaanCucian/TambahPelanggan.fxml"));
             Parent popupRoot = loader.load();
 
             TambahPelangganController popupController = loader.getController();

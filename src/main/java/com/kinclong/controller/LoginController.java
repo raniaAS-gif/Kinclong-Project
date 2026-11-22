@@ -126,7 +126,7 @@ public class LoginController implements Initializable{
 
     private void pindahKeMainLayout(ActionEvent event, Karyawan karyawan) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/kinclong/mainLayout.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/kinclong/MainLayout.fxml"));
             Parent root = loader.load();
 
             MainLayoutController mainController = loader.getController();

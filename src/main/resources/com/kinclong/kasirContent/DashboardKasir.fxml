@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxWidth="1152.0" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1152.0" style="-fx-background-color: #EEF6FC;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxWidth="1152.0" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1152.0" style="-fx-background-color: #EEF6FC;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kinclong.controller.kasirContent.DashboardKasirController">
    <padding>
       <Insets bottom="30.0" left="32.0" right="32.0" top="30.0" />
    </padding>
@@ -27,9 +27,9 @@
       <Region prefHeight="30.0" />
       <HBox alignment="CENTER_LEFT" prefHeight="130.0" prefWidth="1088.0" style="-fx-background-color: #054A7E; -fx-background-radius: 20;">
          <children>
-            <VBox>
+            <VBox alignment="CENTER_LEFT">
                <children>
-                  <Label text="Pemasukan hari ini" textFill="#fafcfe">
+                  <Label minHeight="-Infinity" minWidth="-Infinity" text="Pemasukan hari ini" textFill="#fafcfe">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="16.0" />
                      </font>
@@ -47,35 +47,16 @@
                               <Insets right="5.0" />
                            </padding>
                         </Label>
-                        <Label text="0" textFill="#fafcfe">
+                        <Label fx:id="lblPemasukkanHariIni" text="0" textFill="#fafcfe">
                            <font>
                               <Font name="Inter 24pt ExtraBold" size="40.0" />
                            </font>
                         </Label>
                      </children>
                   </HBox>
-                  <Region prefHeight="20.0" />
-                  <HBox alignment="CENTER_LEFT" maxHeight="60.0" prefHeight="60.0" style="-fx-background-color: #F3FFE0; -fx-background-radius: 20;">
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                     <children>
-                        <ImageView fitHeight="150.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../assets/icons8-arrow-100.png" />
-                           </image>
-                        </ImageView>
-                        <Label opacity="0.67" text="Naik 12% (+ Rp. 68.000,00)" textFill="#385e15">
-                           <font>
-                              <Font name="Inter 24pt SemiBold" size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
                </children>
             </VBox>
-            <Region prefWidth="20.0" />
-            <HBox alignment="CENTER_RIGHT" maxWidth="781.0" prefWidth="781.0">
+            <HBox alignment="CENTER_RIGHT" prefWidth="987.5" HBox.hgrow="ALWAYS">
                <children>
                   <VBox alignment="CENTER_LEFT" prefHeight="130.0" prefWidth="225.0" style="-fx-background-color: #346496; -fx-background-radius: 15;">
                      <padding>
@@ -100,7 +81,7 @@
                                     <Insets right="5.0" />
                                  </padding>
                               </Label>
-                              <Label text="0" textFill="#fafcfe">
+                              <Label fx:id="lblPemasukanKemarin" text="0" textFill="#fafcfe" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font name="Inter 24pt ExtraBold" size="24.0" />
                                  </font>
@@ -109,7 +90,7 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <Label maxWidth="135.0" text="0" textFill="#fafcfe">
+                              <Label fx:id="lblTransaksiKemarin" maxWidth="135.0" text="0" textFill="#fafcfe">
                                  <font>
                                     <Font name="Inter 24pt Medium" size="10.0" />
                                  </font>
@@ -150,7 +131,7 @@
                                     <Insets right="5.0" />
                                  </padding>
                               </Label>
-                              <Label text="0" textFill="#fafcfe">
+                              <Label fx:id="lblPemasukkanMingguIni" text="0" textFill="#fafcfe" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font name="Inter 24pt ExtraBold" size="24.0" />
                                  </font>
@@ -159,7 +140,7 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <Label maxWidth="135.0" text="0" textFill="#fafcfe">
+                              <Label fx:id="lblTransaksiMingguIni" maxWidth="135.0" text="0" textFill="#fafcfe">
                                  <font>
                                     <Font name="Inter 24pt Medium" size="10.0" />
                                  </font>
@@ -200,7 +181,7 @@
                                     <Insets right="5.0" />
                                  </padding>
                               </Label>
-                              <Label text="0" textFill="#fafcfe">
+                              <Label fx:id="lblPemasukanBulanIni" text="0" textFill="#fafcfe" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font name="Inter 24pt ExtraBold" size="24.0" />
                                  </font>
@@ -209,7 +190,7 @@
                         </HBox>
                         <HBox>
                            <children>
-                              <Label maxWidth="135.0" text="0" textFill="#fafcfe">
+                              <Label fx:id="lblTransaksiBulanIni" maxWidth="135.0" text="0" textFill="#fafcfe">
                                  <font>
                                     <Font name="Inter 24pt Medium" size="10.0" />
                                  </font>
@@ -251,13 +232,13 @@
             </VBox>
             <HBox alignment="CENTER_RIGHT" prefWidth="774.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="120.0" style="-fx-background-color: #fafcfe; -fx-background-radius: 10;" text="+ Terima Cucian" textFill="#054a7e">
+                  <Button fx:id="btnTambahCucian" mnemonicParsing="false" onAction="#handleTambahCucian" prefHeight="43.0" prefWidth="120.0" style="-fx-background-color: #fafcfe; -fx-background-radius: 10;" text="+ Terima Cucian" textFill="#054a7e">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="12.0" />
                      </font>
                   </Button>
                   <Region prefWidth="10.0" />
-                  <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="94.0" style="-fx-background-color: transparent; -fx-border-color: #fafcfe; -fx-border-radius: 10;" text="Bayar" textFill="#fafcfe">
+                  <Button fx:id="btnBayar" mnemonicParsing="false" onAction="#handleBayar" prefHeight="43.0" prefWidth="94.0" style="-fx-background-color: transparent; -fx-border-color: #fafcfe; -fx-border-radius: 10;" text="Bayar" textFill="#fafcfe">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="12.0" />
                      </font>
@@ -278,7 +259,7 @@
                      <children>
                         <ImageView fitHeight="79.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/icons8-machine-wash-96.png" />
+                              <Image url="@../../../assets/icons8-machine-wash-96.png" />
                            </image>
                         </ImageView>
                         <VBox alignment="CENTER_LEFT">
@@ -315,7 +296,7 @@
                      <children>
                         <ImageView fitHeight="79.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../assets/cucian%20siap.png" />
+                              <Image url="@../../../assets/cucian%20siap.png" />
                            </image>
                         </ImageView>
                         <VBox alignment="CENTER_LEFT">

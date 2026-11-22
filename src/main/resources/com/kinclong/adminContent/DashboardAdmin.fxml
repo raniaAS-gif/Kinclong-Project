@@ -6,7 +6,6 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
@@ -14,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1152.0" style="-fx-background-color: #EEF6FC;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefWidth="1152.0" style="-fx-background-color: #EEF6FC;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kinclong.controller.adminContent.DashboardAdminController">
    <padding>
       <Insets bottom="30.0" left="32.0" right="32.0" top="30.0" />
    </padding>
@@ -31,7 +30,7 @@
       <Region prefHeight="30.0" />
       <HBox alignment="CENTER" prefWidth="1088.0">
          <children>
-            <VBox alignment="CENTER_LEFT" prefHeight="136.0" prefWidth="264.5" style="-fx-background-color: #FAFCFE; -fx-background-radius: 20; -fx-border-color: #D5E5F3; -fx-border-width: 1; -fx-border-radius: 20;">
+            <VBox alignment="CENTER_LEFT" prefHeight="136.0" prefWidth="264.5" style="-fx-background-color: #FAFCFE; -fx-background-radius: 20; -fx-border-color: #D5E5F3; -fx-border-width: 1; -fx-border-radius: 20;" HBox.hgrow="ALWAYS">
                <children>
                   <HBox alignment="CENTER_LEFT">
                      <children>
@@ -48,7 +47,7 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <Label fx:id="countSudah" text="0" textFill="#5b96d3">
+                  <Label fx:id="lblTotalPelanggan" text="0" textFill="#5b96d3" textOverrun="CLIP">
                      <font>
                         <Font name="Inter 24pt ExtraBold" size="30.0" />
                      </font>
@@ -61,8 +60,8 @@
                   <Insets />
                </HBox.margin>
             </VBox>
-            <Region prefWidth="10.0" />
-            <VBox alignment="CENTER_LEFT" prefHeight="136.0" prefWidth="264.5" style="-fx-background-color: #FAFCFE; -fx-background-radius: 20; -fx-border-color: #D5E5F3; -fx-border-width: 1; -fx-border-radius: 20;">
+            <Region prefWidth="10.0" HBox.hgrow="NEVER" />
+            <VBox alignment="CENTER_LEFT" prefHeight="136.0" prefWidth="264.5" style="-fx-background-color: #FAFCFE; -fx-background-radius: 20; -fx-border-color: #D5E5F3; -fx-border-width: 1; -fx-border-radius: 20;" HBox.hgrow="ALWAYS">
                <children>
                   <HBox alignment="CENTER_LEFT">
                      <children>
@@ -79,7 +78,7 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <Label fx:id="countSudah1" text="0" textFill="#5b96d3">
+                  <Label fx:id="lblJenisLayanan" text="0" textFill="#5b96d3" textOverrun="CLIP">
                      <font>
                         <Font name="Inter 24pt ExtraBold" size="30.0" />
                      </font>
@@ -89,8 +88,8 @@
                   <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
                </padding>
             </VBox>
-            <Region prefWidth="10.0" />
-            <VBox alignment="CENTER_LEFT" prefHeight="136.0" prefWidth="264.5" style="-fx-background-color: #FAFCFE; -fx-background-radius: 20; -fx-border-color: #D5E5F3; -fx-border-width: 1; -fx-border-radius: 20;">
+            <Region prefWidth="10.0" HBox.hgrow="NEVER" />
+            <VBox alignment="CENTER_LEFT" prefHeight="136.0" prefWidth="264.5" style="-fx-background-color: #FAFCFE; -fx-background-radius: 20; -fx-border-color: #D5E5F3; -fx-border-width: 1; -fx-border-radius: 20;" HBox.hgrow="ALWAYS">
                <children>
                   <HBox alignment="CENTER_LEFT">
                      <children>
@@ -107,7 +106,7 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <Label fx:id="countSudah11" text="0" textFill="#5b96d3">
+                  <Label fx:id="lblKasirAktif" text="0" textFill="#5b96d3" textOverrun="CLIP">
                      <font>
                         <Font name="Inter 24pt ExtraBold" size="30.0" />
                      </font>
@@ -117,8 +116,8 @@
                   <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
                </padding>
             </VBox>
-            <Region prefWidth="10.0" />
-            <VBox alignment="CENTER_LEFT" prefHeight="136.0" prefWidth="264.5" style="-fx-background-color: #FAFCFE; -fx-background-radius: 20; -fx-border-color: #D5E5F3; -fx-border-width: 1; -fx-border-radius: 20;">
+            <Region prefWidth="10.0" HBox.hgrow="NEVER" />
+            <VBox alignment="CENTER_LEFT" prefHeight="136.0" prefWidth="264.5" style="-fx-background-color: #FAFCFE; -fx-background-radius: 20; -fx-border-color: #D5E5F3; -fx-border-width: 1; -fx-border-radius: 20;" HBox.hgrow="ALWAYS">
                <children>
                   <HBox alignment="CENTER_LEFT">
                      <children>
@@ -145,7 +144,7 @@
                               <Insets right="5.0" />
                            </padding>
                         </Label>
-                        <Label fx:id="countSudah111" text="0" textFill="#5b96d3">
+                        <Label fx:id="lblOmzetBulanIni" text="0" textFill="#5b96d3" textOverrun="CLIP">
                            <font>
                               <Font name="Inter 24pt ExtraBold" size="30.0" />
                            </font>
@@ -167,17 +166,32 @@
                   <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
                </padding>
                <children>
-                  <Label text="Pendapatan 7 hari terakhir" textFill="#2f4a6b">
+                  <Label prefWidth="374.0" text="Pendapatan 7 hari terakhir" textFill="#2f4a6b">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="14.0" />
                      </font>
                   </Label>
-                  <BarChart>
+                  <HBox>
+                     <children>
+                        <Label fx:id="lblRentangTanggal" text="rentang tanggal" textFill="#2f4a6b">
+                           <font>
+                              <Font name="Inter 24pt Regular" size="12.0" />
+                           </font>
+                        </Label>
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label alignment="CENTER_RIGHT" text="dalam juta rupiah" textFill="#2f4a6b" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="Inter 24pt Regular" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <BarChart fx:id="barChartPendapatan" VBox.vgrow="ALWAYS">
                     <xAxis>
-                      <CategoryAxis side="BOTTOM" />
+                      <CategoryAxis side="BOTTOM" fx:id="xAxisHari" />
                     </xAxis>
                     <yAxis>
-                      <NumberAxis side="LEFT" />
+                      <NumberAxis fx:id="yAxisNominal" autoRanging="false" side="LEFT" tickUnit="0.5" upperBound="1.5" />
                     </yAxis>
                   </BarChart>
                </children>
@@ -194,25 +208,7 @@
                      </font>
                   </Label>
                   <Region prefHeight="16.0" />
-                  <VBox>
-                     <children>
-                        <HBox>
-                           <children>
-                              <Label text="Nama Layanan" textFill="#2f4a6b">
-                                 <font>
-                                    <Font name="Inter 24pt Regular" size="12.0" />
-                                 </font>
-                              </Label>
-                              <Label alignment="CENTER_RIGHT" maxWidth="274.0" prefWidth="193.0" text="0%" textFill="#2f4a6b" HBox.hgrow="ALWAYS">
-                                 <font>
-                                    <Font name="Inter 24pt Regular" size="12.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                     </children>
-                  </VBox>
-                  <ProgressBar prefHeight="18.0" prefWidth="274.0" progress="0.0" />
+                  <VBox spacing="14.0" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>
             <Region prefWidth="44.0" />
@@ -228,19 +224,19 @@
                   </Label>
                   <Region prefHeight="16.0" />
                   <VBox />
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="274.0" style="-fx-background-color: #185FA5; -fx-background-radius: 10;" text="+ Tambah Karyawan" textFill="#fafcfe">
+                  <Button fx:id="btnTambahKaryawan" mnemonicParsing="false" onAction="#handleAksiTambahKaryawan" prefHeight="50.0" prefWidth="274.0" style="-fx-background-color: #185FA5; -fx-background-radius: 10;" text="+ Tambah Karyawan" textFill="#fafcfe">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="15.0" />
                      </font>
                   </Button>
                   <Region prefHeight="10.0" />
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="274.0" style="-fx-background-color: #185FA5; -fx-background-radius: 10;" text="+ Tambah Layanan" textFill="#fafcfe">
+                  <Button fx:id="btnTambahLayanan" mnemonicParsing="false" onAction="#handleAksiTambahLayanan" prefHeight="50.0" prefWidth="274.0" style="-fx-background-color: #185FA5; -fx-background-radius: 10;" text="+ Tambah Layanan" textFill="#fafcfe">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="15.0" />
                      </font>
                   </Button>
                   <Region prefHeight="10.0" />
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="274.0" style="-fx-background-color: #185FA5; -fx-background-radius: 10;" text="Lihat Laporan Keuangan" textFill="#fafcfe">
+                  <Button fx:id="btnLihatLaporanKeuangan" mnemonicParsing="false" onAction="#handleAksiLihatLaporanKeuangan" prefHeight="50.0" prefWidth="274.0" style="-fx-background-color: #185FA5; -fx-background-radius: 10;" text="Lihat Laporan Keuangan" textFill="#fafcfe">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="15.0" />
                      </font>

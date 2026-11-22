@@ -194,7 +194,7 @@ public class EditPelangganController implements Initializable, SidebarSwitching 
 
     private void kembaliKePilihPelanggan() {
         if (mainLayoutController != null) {
-            mainLayoutController.loadPage("/com/kinclong/PenerimaanCucian.fxml");
+            mainLayoutController.loadPage("/com/kinclong/kasirContent/penerimaanCucian/PenerimaanCucian.fxml");
         }
     }
 }
